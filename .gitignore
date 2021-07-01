@@ -5,6 +5,16 @@
 [Bb]uilds/
 Assets/AssetStoreTools*
 
+
+Arcade/[Ll]ibrary/
+Arcade/[Tt]emp/
+Arcade/[Oo]bj/
+Arcade/[Bb]uild/
+Arcade/[Bb]uilds/
+Arcade/[Ll]ogs/
+Arcade/Assets/AssetStoreTools*
+Arcade/.vs/
+
 # Visual Studio cache directory
 .vs/
 
