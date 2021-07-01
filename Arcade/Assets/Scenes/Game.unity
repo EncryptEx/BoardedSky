@@ -219,6 +219,72 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 19638078}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &88787155
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 902933343475376036, guid: f9fd91f0158aba3419eef1923deacd3e, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 902933343475376036, guid: f9fd91f0158aba3419eef1923deacd3e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -17.154398
+      objectReference: {fileID: 0}
+    - target: {fileID: 902933343475376036, guid: f9fd91f0158aba3419eef1923deacd3e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 29.025381
+      objectReference: {fileID: 0}
+    - target: {fileID: 902933343475376036, guid: f9fd91f0158aba3419eef1923deacd3e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -21.244608
+      objectReference: {fileID: 0}
+    - target: {fileID: 902933343475376036, guid: f9fd91f0158aba3419eef1923deacd3e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 902933343475376036, guid: f9fd91f0158aba3419eef1923deacd3e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 902933343475376036, guid: f9fd91f0158aba3419eef1923deacd3e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 902933343475376036, guid: f9fd91f0158aba3419eef1923deacd3e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 902933343475376036, guid: f9fd91f0158aba3419eef1923deacd3e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 902933343475376036, guid: f9fd91f0158aba3419eef1923deacd3e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 902933343475376036, guid: f9fd91f0158aba3419eef1923deacd3e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2104791142623143131, guid: f9fd91f0158aba3419eef1923deacd3e, type: 3}
+      propertyPath: m_Name
+      value: Projectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 2104791142623143131, guid: f9fd91f0158aba3419eef1923deacd3e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f9fd91f0158aba3419eef1923deacd3e, type: 3}
+--- !u!1 &246513992 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2104791142623143131, guid: f9fd91f0158aba3419eef1923deacd3e, type: 3}
+  m_PrefabInstance: {fileID: 88787155}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &346019052
 GameObject:
   m_ObjectHideFlags: 0
@@ -425,7 +491,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f590e576db8ee64abaf48887c47ee56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  brb: {fileID: 7512758881590358334, guid: f9fd91f0158aba3419eef1923deacd3e, type: 3}
+  numberOfBounces: 0
+  ball: {fileID: 246513992}
 --- !u!65 &948728496
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -566,7 +633,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f590e576db8ee64abaf48887c47ee56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  brb: {fileID: 7512758881590358334, guid: f9fd91f0158aba3419eef1923deacd3e, type: 3}
+  numberOfBounces: 0
+  ball: {fileID: 246513992}
 --- !u!65 &1188762967
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -834,7 +902,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f590e576db8ee64abaf48887c47ee56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  brb: {fileID: 7512758881590358334, guid: f9fd91f0158aba3419eef1923deacd3e, type: 3}
+  numberOfBounces: 0
+  ball: {fileID: 246513992}
 --- !u!65 &1398280333
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -892,7 +961,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f590e576db8ee64abaf48887c47ee56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  brb: {fileID: 7512758881590358334, guid: f9fd91f0158aba3419eef1923deacd3e, type: 3}
+  numberOfBounces: 0
+  ball: {fileID: 246513992}
 --- !u!65 &1704781519
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -949,7 +1019,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9f0dbc2cc16d024dbb626e5981c4009, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  proj: {fileID: 2104791142623143131, guid: f9fd91f0158aba3419eef1923deacd3e, type: 3}
+  proj: {fileID: 246513992}
 --- !u!1 &1857112762
 GameObject:
   m_ObjectHideFlags: 0

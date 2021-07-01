@@ -8,7 +8,7 @@ public class SpawnManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Invoke("CreateNewBall",3);
+       Invoke("EnableBall", 2);
     }
 
     // Update is called once per frame
@@ -17,8 +17,8 @@ public class SpawnManager : MonoBehaviour
         
     }
 
-    void CreateNewBall()
+    void EnableBall()
     {
-        Instantiate(proj);
+        proj.active = true;
     }
 }

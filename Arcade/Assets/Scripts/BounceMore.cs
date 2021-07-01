@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class BounceMore : MonoBehaviour
 {
-    public Rigidbody brb;
+    public int numberOfBounces = 0;
+    public GameObject ball;
     Vector3 vel;
     // Start is called before the first frame update
     void Start()
@@ -24,12 +25,17 @@ public class BounceMore : MonoBehaviour
        // if (other.CompareTag("projectile"))
         if (other.CompareTag("projectile"))
         {
-            
+            var brb = ball.GetComponent<Rigidbody>();
             vel.x = brb.velocity.x;
             vel.x = 0;
-            vel.z = (brb.velocity.z / 2) + (brb.velocity.z / 3);
+            vel.z = (brb.velocity.z * (1+1/3) +1);
+            if (vel.z > 63)
+            {
+                vel.z = 63f;
+            }
             brb.velocity = vel;
             Debug.Log("EXTRA FORCE APPLIED"+brb.velocity);
+            numberOfBounces += 1;
         }
     }
 }
