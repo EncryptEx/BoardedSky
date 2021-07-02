@@ -19,6 +19,6 @@ public class SpawnManager : MonoBehaviour
 
     void EnableBall()
     {
-        proj.active = true;
+        proj.SetActive(true);
     }
 }

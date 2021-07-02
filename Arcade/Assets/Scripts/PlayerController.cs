@@ -11,6 +11,10 @@ public class PlayerController : MonoBehaviour
     public float rmax;
 
     public float lmax;
+    float smooth = 5.0f;
+    float tiltAngle = 10.0f;
+
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +24,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         // get actual positon
         Vector3 pos = transform.position;
         //move horizontally with set speed and time control. The rest is as it is.
@@ -33,8 +38,14 @@ public class PlayerController : MonoBehaviour
         {
             newx = lmax;
         }
-
-        
         transform.position = new Vector3(newx, pos.y, pos.z);
+        // Smoothly tilts a transform towards a target rotation.
+        float tiltAroundY = Input.GetAxis("Vertical") * tiltAngle;
+
+        // Rotate the cube by converting the angles into a quaternion.
+        Quaternion target = Quaternion.Euler(0, tiltAroundY, 0);
+
+        // Dampen towards the target rotation
+        transform.rotation = Quaternion.Slerp(transform.rotation, target,  Time.deltaTime * smooth);
     }
 }
