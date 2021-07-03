@@ -14,7 +14,7 @@ public class ProjectileBehaviour : MonoBehaviour
         //set start pos
         transform.position = startPos;
         //forces
-        rb.AddForce(new Vector3(1f,0f,0.5f)*Time.deltaTime * initialForce);
+        rb.AddForce(new Vector3(1f,0f,0.75f)*Time.deltaTime * initialForce);
     }
 
     // Update is called once per frame

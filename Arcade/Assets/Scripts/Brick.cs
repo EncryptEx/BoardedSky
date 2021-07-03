@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Brick : MonoBehaviour
@@ -9,9 +10,11 @@ public class Brick : MonoBehaviour
     public GameObject brick;
 
     public GameObject brickbase;
+    public int count = 000;
     // Start is called before the first frame update
     void Start()
     {
+        
         //make sure clone is enabled
         brick.gameObject.SetActive(true);
     }
@@ -23,6 +26,9 @@ public class Brick : MonoBehaviour
         {
             //future feedback to the user to make him realise has damaged a block.
             //brickbase.color
+            var brickrenderer = brickbase.GetComponent<Renderer>();
+            brickrenderer.material.SetColor("_Color", 
+                 Color.grey);
         }
         if (brickDiff <= 0)
         {
@@ -35,8 +41,11 @@ public class Brick : MonoBehaviour
     {
         Debug.Log("COLLISION IN"+gameObject.name);
         if (other.CompareTag("projectile"))
-            
+
         {
+            var p = GameObject.Find("PointsSystem").GetComponent<Points>();
+            count=20;
+            p.Updatecounter(count);
             brickDiff--;
         }
     }

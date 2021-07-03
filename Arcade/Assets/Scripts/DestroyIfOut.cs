@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class DestroyIfOut : MonoBehaviour
 {
+    public GameObject gameOverLight;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +18,7 @@ public class DestroyIfOut : MonoBehaviour
         if (this.transform.position.z < -23)
         {
             Destroy(this.gameObject);
+            gameOverLight.SetActive(true);
             Debug.Log("Game OVER");
         }
     }
