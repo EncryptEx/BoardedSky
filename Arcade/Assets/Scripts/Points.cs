@@ -7,7 +7,7 @@ public class Points : MonoBehaviour
 {
     public int countt;
     public TextMeshProUGUI countText;
-
+  
     public TextMeshProUGUI timeText;
     // Start is called before the first frame update
     void Start()

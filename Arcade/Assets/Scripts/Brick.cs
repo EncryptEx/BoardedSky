@@ -8,9 +8,10 @@ public class Brick : MonoBehaviour
 {
     public int brickDiff = 2;
     public GameObject brick;
-
     public GameObject brickbase;
     public int count = 000;
+
+    private Points po;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +20,10 @@ public class Brick : MonoBehaviour
         brick.gameObject.SetActive(true);
     }
 
+    public void Initialize()
+    {
+        po = GameObject.Find("PointsSystem").GetComponent<Points>();
+    }
     // Update is called once per frame
     void Update()
     {
@@ -28,7 +33,7 @@ public class Brick : MonoBehaviour
             //brickbase.color
             var brickrenderer = brickbase.GetComponent<Renderer>();
             brickrenderer.material.SetColor("_Color", 
-                 Color.grey);
+                 new Color(59/255f, 124/255f, 181/255f)); 
         }
         if (brickDiff <= 0)
         {
@@ -37,16 +42,17 @@ public class Brick : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision other)
     {
         Debug.Log("COLLISION IN"+gameObject.name);
-        if (other.CompareTag("projectile"))
+        if (other.gameObject.CompareTag("projectile"))
 
         {
-            var p = GameObject.Find("PointsSystem").GetComponent<Points>();
             count=20;
-            p.Updatecounter(count);
+            po.Updatecounter(count);
             brickDiff--;
         }
     }
+
+    
 }

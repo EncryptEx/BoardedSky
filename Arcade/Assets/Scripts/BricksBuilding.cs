@@ -35,6 +35,8 @@ public class BricksBuilding : MonoBehaviour
                var brickPos = new Vector3(x*3*i-22+col.size.x, 1, z*r+col.size.z);
                Debug.Log("brickpos "+i+"|"+r+brickPos);
                var brickInstance = Instantiate(brick);
+               // brick creates the ref to the points system script.
+               brickInstance.GetComponent<Brick>().Initialize();
                brickInstance.transform.position = brickPos;
            } 
         }
