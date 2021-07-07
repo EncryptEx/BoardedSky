@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - projectile
+  - brick
+  - gameover
   layers:
   - Default
   - TransparentFX

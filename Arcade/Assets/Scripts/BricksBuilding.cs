@@ -18,7 +18,7 @@ public class BricksBuilding : MonoBehaviour
         var distCols = 13 / cols;
         Debug.Log("distcols:"+distCols);
         
-        var distRows = 6 / rows;
+        var distRows = 8 / rows;
         Debug.Log("distrows:"+distRows);
         
         
@@ -36,7 +36,6 @@ public class BricksBuilding : MonoBehaviour
                Debug.Log("brickpos "+i+"|"+r+brickPos);
                var brickInstance = Instantiate(brick);
                // brick creates the ref to the points system script.
-               brickInstance.GetComponent<Brick>().Initialize();
                brickInstance.transform.position = brickPos;
            } 
         }

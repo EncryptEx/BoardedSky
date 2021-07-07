@@ -7,7 +7,7 @@ public class Points : MonoBehaviour
 {
     public int countt;
     public TextMeshProUGUI countText;
-  
+    public GameOverScript go; //to stop chrono and points after being dead.
     public TextMeshProUGUI timeText;
     // Start is called before the first frame update
     void Start()
@@ -18,9 +18,12 @@ public class Points : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var minutes = Time.time / 60f;
-        var seconds = Time.time % 60;
-        timeText.text = minutes.ToString("00") + ":" + seconds.ToString("00");
+        if (!go.gameover)
+        {
+            var minutes = Time.time / 60f;
+            var seconds = Time.time % 60;
+            timeText.text = minutes.ToString("00") + ":" + seconds.ToString("00");
+        }
     }
 
     public void Updatecounter(int count)
@@ -32,4 +35,7 @@ public class Points : MonoBehaviour
         }
         countText.text = countt.ToString();
     }
+
+    
+    
 }

@@ -13,7 +13,7 @@ public class PaddleVelocityAdder : MonoBehaviour
             Debug.Log("BALL WITH PADDLE");
             var f = other.GetComponent<Rigidbody>();
             var vel = other.GetComponent<Rigidbody>().velocity;
-            var force = new Vector3(vel.x*m*0.0005f,0,vel.z*m*0.0005f);
+            var force = new Vector3(vel.x*m*1.05f,0,vel.z*m*0.0005f);
             Debug.Log("applied force: "+force);
             f.AddForce(force);
         }
