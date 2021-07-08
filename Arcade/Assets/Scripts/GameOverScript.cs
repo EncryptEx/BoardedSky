@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameOverScript : MonoBehaviour
@@ -9,6 +6,8 @@ public class GameOverScript : MonoBehaviour
     public GameObject GameOverText;
     public GameObject walls;
     public GameObject player;
+    public float force = 1f;
+    
 
     private void Start()
     {
@@ -23,22 +22,18 @@ public class GameOverScript : MonoBehaviour
         var bricks = GameObject.FindGameObjectsWithTag("brick");
         foreach (var brick in bricks)
         {
-            brick.gameObject.AddComponent<Rigidbody>();
+            var rb = brick.gameObject.AddComponent<Rigidbody>();
+            rb.AddForce(new Vector3(Random.Range(-1f,1f)*force,0,Random.Range(-1f,1f)*force));
         }
-        walls.gameObject.AddComponent<Rigidbody>();
-        player.gameObject.AddComponent<Rigidbody>();
+        walls.AddComponent<Rigidbody>();
+        player.AddComponent<Rigidbody>();
+        GameOverText.AddComponent<Rigidbody>();
+            
         var alt = GameOverText.gameObject.GetComponent<RectTransform>().position.y;
-
-        /*while (GameOverText.gameObject.GetComponent<RectTransform>().position.y >= -90)
-        {
-            alt -= 10f*Time.deltaTime;*/
-            alt = 410; 
-            var v = new Vector3(GameOverText.gameObject.GetComponent<RectTransform>().position.x, alt, GameOverText.gameObject.GetComponent<RectTransform>().position.z);
-            Debug.Log(v);
-            GameOverText.gameObject.GetComponent<RectTransform>().position = v;
-        //}
+        
         
         //just for debug
         Debug.Log("Game OVER");
     }
+    
 }
