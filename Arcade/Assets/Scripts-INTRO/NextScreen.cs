@@ -16,7 +16,7 @@ public class NextScreen : MonoBehaviour
     {
         if (Input.anyKeyDown)
         {
-            SceneManager.LoadSceneAsync(1);
+            SceneManager.LoadScene(1);
         }
     }
 }
