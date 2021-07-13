@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SaveUI : MonoBehaviour
+public class SaveItForLater : MonoBehaviour
 {
     // Start is called before the first frame update
-    public SaveUI Instance;
+    public SaveItForLater Instance;
 
     private void Awake()
     {
