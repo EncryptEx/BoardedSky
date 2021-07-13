@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using Random = System.Random;
 
 public class Brick : MonoBehaviour
 {
@@ -16,7 +17,11 @@ public class Brick : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        var random = UnityEngine.Random.Range(1, 10);
+        if (random <= 3)
+        {
+            brickDiff = 1;
+        }
         //make sure clone is enabled
         brick.gameObject.SetActive(true);
     }
