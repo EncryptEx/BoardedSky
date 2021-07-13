@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameOverScript : MonoBehaviour
 {
@@ -34,6 +35,7 @@ public class GameOverScript : MonoBehaviour
         
         //just for debug
         Debug.Log("Game OVER");
+        
     }
     
 }

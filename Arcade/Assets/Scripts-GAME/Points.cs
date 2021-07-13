@@ -9,8 +9,9 @@ public class Points : MonoBehaviour
     public TextMeshProUGUI countText;
     public GameOverScript go; //to stop chrono and points after being dead.
     public TextMeshProUGUI timeText;
+    public static Points Instance;
     // Start is called before the first frame update
-    void Start()
+   void Start()
     {
         timeText.text = "00:00";
     }
@@ -35,6 +36,8 @@ public class Points : MonoBehaviour
         }
         countText.text = countt.ToString();
     }
+    
+   
 
     
     
