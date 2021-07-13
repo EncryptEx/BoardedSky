@@ -8,6 +8,14 @@ public class AudioManager : MonoBehaviour
     
     // Start is called before the first frame update
     private AudioSource audio;
+    
+    public static AudioManager Instance;
+
+    private void Awake()
+    {
+        Instance = this;
+        DontDestroyOnLoad(this);
+    }
     void Start()
     {
         audio = this.GetComponent<AudioSource>();

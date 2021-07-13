@@ -7,6 +7,7 @@ public class GameOverScript : MonoBehaviour
     public GameObject GameOverText;
     public GameObject walls;
     public GameObject player;
+    public GameObject uiToDelete;
     public float force = 1f;
     
 
@@ -29,6 +30,7 @@ public class GameOverScript : MonoBehaviour
         walls.AddComponent<Rigidbody>();
         player.AddComponent<Rigidbody>();
         GameOverText.AddComponent<Rigidbody>();
+        Destroy(uiToDelete);
             
         var alt = GameOverText.gameObject.GetComponent<RectTransform>().position.y;
         
