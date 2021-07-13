@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ProjectileBehaviour : MonoBehaviour
-{   public float initialForce = 20f;
+{   public float initialForce = -200f;
+    public float random = 50f;
     public Vector3 startPos;
     private Rigidbody rb;
     
@@ -13,8 +14,8 @@ public class ProjectileBehaviour : MonoBehaviour
         rb = this.GetComponent<Rigidbody>();
         //set start pos
         transform.position = startPos;
-        //forces
-        rb.AddForce(new Vector3(1f,0f,0.75f)*Time.deltaTime * initialForce);
+        //rotate and move
+        rb.AddForce(new Vector3(random,0f,initialForce));
     }
 
     // Update is called once per frame
