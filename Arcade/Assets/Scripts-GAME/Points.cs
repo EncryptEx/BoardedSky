@@ -11,9 +11,11 @@ public class Points : MonoBehaviour
     public TextMeshProUGUI timeText;
     public static Points Instance;
     // Start is called before the first frame update
+    private float startedTime;
    void Start()
     {
         timeText.text = "00:00";
+        startedTime = Time.time;
     }
 
     // Update is called once per frame
@@ -21,8 +23,9 @@ public class Points : MonoBehaviour
     {
         if (!go.gameover)
         {
-            var minutes = Time.time / 60f;
-            var seconds = Time.time % 60;
+            var currentTime = Time.time - startedTime;
+            var minutes = currentTime / 60f;
+            var seconds = currentTime % 60;
             timeText.text = minutes.ToString("00") + ":" + seconds.ToString("00");
         }
     }
