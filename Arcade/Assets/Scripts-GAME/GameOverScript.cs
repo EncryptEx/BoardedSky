@@ -9,6 +9,8 @@ public class GameOverScript : MonoBehaviour
     public GameObject player;
     public GameObject uiToDelete;
     public float force = 1f;
+
+    [Tooltip("Game Over Light")] public GameObject gameOverLight;
     
     public GameOverScript Instance;
     private void Awake()
@@ -23,9 +25,10 @@ public class GameOverScript : MonoBehaviour
         gameover = false; //always!
     }
 
-    public void GameOver(GameObject gameOverLight)
+    public void GameOver()
     {
         gameover = true;
+        
         gameOverLight.SetActive(true);
         //operacion brick down
         var bricks = GameObject.FindGameObjectsWithTag("brick");

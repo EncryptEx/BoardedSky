@@ -421,7 +421,7 @@ GameObject:
   - component: {fileID: 3821261878877893387}
   - component: {fileID: 8394717311571461118}
   - component: {fileID: 99263107831916466}
-  - component: {fileID: -762733604293915170}
+  - component: {fileID: 1983920756494246215}
   m_Layer: 0
   m_Name: Brick
   m_TagString: brick
@@ -483,7 +483,8 @@ MonoBehaviour:
   brickbase: {fileID: 1031408969069869187}
   OneHpColor: {r: 0.3679245, g: 0.2500803, b: 0.21693662, a: 1}
   count: 0
---- !u!114 &-762733604293915170
+  bd: {fileID: 0}
+--- !u!114 &1983920756494246215
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -492,11 +493,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 3594418837254906840}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87758966df6ad4a4daccc609be55a8c9, type: 3}
+  m_Script: {fileID: 11500000, guid: ea57becd0264e8e409ab086270760446, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOverLight: {fileID: 0}
-  g: {fileID: 0}
 --- !u!1 &6729144034373588414
 GameObject:
   m_ObjectHideFlags: 0

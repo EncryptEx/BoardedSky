@@ -16,10 +16,4 @@ public class ProjectileBehaviour : MonoBehaviour
         //forces
         rb.AddForce(new Vector3(1f,0f,0.75f)*Time.deltaTime * initialForce);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

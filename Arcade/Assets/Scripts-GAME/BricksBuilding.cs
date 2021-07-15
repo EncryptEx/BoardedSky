@@ -18,10 +18,18 @@ public class BricksBuilding : MonoBehaviour
     
     void Start()
     {
-        
-       
-        
-        
+        Invoke("GenerateNewBricks",0);       
+ 
+    }
+
+
+    public void GenerateDelayedNewBricks()
+    {
+        Invoke("GenerateNewBricks",1f);
+    }
+    
+    public void GenerateNewBricks()
+    {
         //generate rows and cols.
 
         int randCols = UnityEngine.Random.Range(5, 8);
@@ -47,24 +55,15 @@ public class BricksBuilding : MonoBehaviour
         //ArrayList brickPositions;
         for (int r = 0; r < rows; r++)
         {
-           for (int i = 0; i < cols; i++)
-           {
-               //brickPositions.Add(new Vector3(distCols * i, 0, distRows * i));
-               var brickPos = new Vector3(distCols*(i*1.2f)-22+col.size.x, 1, distRows*r+col.size.z);
-               Debug.Log("brickpos "+i+"|"+r+brickPos);
-               var brickInstance = Instantiate(brick);
-               // brick creates the ref to the points system script.
-               brickInstance.transform.position = brickPos;
-           } 
+            for (int i = 0; i < cols; i++)
+            {
+                //brickPositions.Add(new Vector3(distCols * i, 0, distRows * i));
+                var brickPos = new Vector3(distCols*(i*1.2f)-22+col.size.x, 1, distRows*r+col.size.z);
+                Debug.Log("brickpos "+i+"|"+r+brickPos);
+                var brickInstance = Instantiate(brick);
+                // brick creates the ref to the points system script.
+                brickInstance.transform.position = brickPos;
+            } 
         }
-        
-        
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-       
     }
 }
