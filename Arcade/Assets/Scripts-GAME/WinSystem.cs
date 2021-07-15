@@ -23,8 +23,16 @@ public class WinSystem : MonoBehaviour
             //delayed!!! important to make sure ball doesn't gets shoked. (can happen)
             bb.GenerateDelayedNewBricks();
             //add life to player as a reward 
-            lm.lives++;
-
+            if (lm.lives <= 5)
+            {
+                lm.lives++;
+            }
+            else
+            {
+                Debug.Log("user has 6 lifes. To much.");
+                //maybe 1.1X on score?     or maybe +1000       idk     
+            }
+            //for future check if has more than 6 to not abuse it. 
         }
     }
 }
