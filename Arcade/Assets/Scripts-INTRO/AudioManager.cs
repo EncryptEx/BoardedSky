@@ -30,7 +30,7 @@ public class AudioManager : MonoBehaviour
 
     private void Update()
     {
-        audio.volume = volume ;
+        audio.volume = volume;
     }
 
     // Update is called once per frame

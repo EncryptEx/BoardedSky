@@ -26,10 +26,12 @@ public class NextScreen : MonoBehaviour
         AudioManager.Instance.Click();
         while (am.volume > 0f)
         {
-            Debug.Log("reducing volume"+am.volume);
+            //Debug.Log("reducing volume"+am.volume);
             am.volume -= 0.01f;
             yield return null;
         }
+
+        am.volume = 0f;
         
         SceneManager.LoadScene(1);
     }
