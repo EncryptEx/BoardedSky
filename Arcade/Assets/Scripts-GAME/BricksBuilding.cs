@@ -7,13 +7,31 @@ public class BricksBuilding : MonoBehaviour
     public int cols = 4;
 
     public int rows = 2;
+    public bool debug = false;
 
     public GameObject brick;
 
     public BoxCollider col;
         // Start is called before the first frame update
+
+
+    
     void Start()
     {
+        
+       
+        
+        
+        //generate rows and cols.
+
+        int randCols = UnityEngine.Random.Range(5, 8);
+        int randRows = UnityEngine.Random.Range(3, 4);
+
+        if (!debug)
+        {
+            cols = randCols;
+            rows = randRows;
+        }
 
         var distCols = 13 / cols;
         Debug.Log("distcols:"+distCols);
@@ -32,7 +50,7 @@ public class BricksBuilding : MonoBehaviour
            for (int i = 0; i < cols; i++)
            {
                //brickPositions.Add(new Vector3(distCols * i, 0, distRows * i));
-               var brickPos = new Vector3(x*3*i-22+col.size.x, 1, z*r+col.size.z);
+               var brickPos = new Vector3(distCols*(i*1.2f)-22+col.size.x, 1, distRows*r+col.size.z);
                Debug.Log("brickpos "+i+"|"+r+brickPos);
                var brickInstance = Instantiate(brick);
                // brick creates the ref to the points system script.

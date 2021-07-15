@@ -10,6 +10,13 @@ public class GameOverScript : MonoBehaviour
     public GameObject uiToDelete;
     public float force = 1f;
     
+    public GameOverScript Instance;
+    private void Awake()
+    {
+        Instance = this;
+        DontDestroyOnLoad(this);
+    }
+
 
     private void Start()
     {

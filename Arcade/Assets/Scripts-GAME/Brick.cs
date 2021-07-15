@@ -14,13 +14,37 @@ public class Brick : MonoBehaviour
     public int count = 000;
 
     private Points po;
+    
+    
+    public DifficultyBrickSaver bd;
+    
+    
     // Start is called before the first frame update
     void Start()
     {
-        var random = UnityEngine.Random.Range(1, 10);
-        if (random <= 3)
+        bd = GameObject.Find("DifficultyBrickSaver").GetComponent<DifficultyBrickSaver>();
+        Debug.Log("found bd:"+bd);
+        
+        var tobrickDiff = bd.diff;
+        Debug.Log(tobrickDiff);
+        //find difficulty set ( 3 modes, 0,1,2)
+        if (tobrickDiff == 1)
+        {
+            var random = UnityEngine.Random.Range(1, 10);
+            if (random <= 3)
+            {
+                brickDiff = 1;
+            }
+        }
+
+        if (tobrickDiff == 0)
         {
             brickDiff = 1;
+        }
+
+        if (tobrickDiff == 2)
+        {
+            brickDiff = 2;
         }
         //make sure clone is enabled
         brick.gameObject.SetActive(true);

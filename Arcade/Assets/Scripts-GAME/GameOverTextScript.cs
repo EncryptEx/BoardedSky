@@ -19,12 +19,12 @@ public class GameOverTextScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (g.gameover && SceneManager.GetActiveScene().name == "Game")
+        if (g.gameover && SceneManager.GetActiveScene().buildIndex == 2)
         {
             if (GetComponent<RectTransform>().position.z <= -1.9)
             {
                 Destroy(GetComponent<Rigidbody>());
-                SceneManager.LoadScene(2);
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
                 
             }
         }

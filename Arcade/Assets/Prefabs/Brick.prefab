@@ -481,7 +481,7 @@ MonoBehaviour:
   brickDiff: 2
   brick: {fileID: 3594418837254906840}
   brickbase: {fileID: 1031408969069869187}
-  OneHpColor: {r: 0.5849056, g: 0.45751232, b: 0.42212528, a: 1}
+  OneHpColor: {r: 0.3679245, g: 0.2500803, b: 0.21693662, a: 1}
   count: 0
 --- !u!114 &-762733604293915170
 MonoBehaviour:

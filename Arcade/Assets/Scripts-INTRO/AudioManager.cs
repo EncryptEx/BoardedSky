@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,7 +6,8 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     public AudioClip[] audios;
-    
+
+    public float volume = 1f;
     // Start is called before the first frame update
     private AudioSource audio;
     
@@ -23,6 +25,12 @@ public class AudioManager : MonoBehaviour
         audio.clip = audios[0];
         audio.loop = true;
         audio.Play();
+    
+    }
+
+    private void Update()
+    {
+        audio.volume = volume ;
     }
 
     // Update is called once per frame
@@ -31,4 +39,7 @@ public class AudioManager : MonoBehaviour
         int randomAudioClick = UnityEngine.Random.Range(1, 2);
         audio.PlayOneShot(audios[randomAudioClick]); //click
     }
+
+  
+    
 }
