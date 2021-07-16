@@ -10,6 +10,8 @@ public class GameOverScript : MonoBehaviour
     public GameObject uiToDelete;
     public float force = 1f;
 
+    private AudioManager am;
+    
     [Tooltip("Game Over Light")] public GameObject gameOverLight;
     
     public GameOverScript Instance;
@@ -22,6 +24,7 @@ public class GameOverScript : MonoBehaviour
 
     private void Start()
     {
+        am = GameObject.Find("SoundSystem").GetComponent<AudioManager>();
         gameover = false; //always!
     }
 
@@ -37,6 +40,8 @@ public class GameOverScript : MonoBehaviour
             var rb = brick.gameObject.AddComponent<Rigidbody>();
             rb.AddForce(new Vector3(Random.Range(-1f,1f)*force,0,Random.Range(-1f,1f)*force));
         }
+
+        StartCoroutine(am.FadeOut());
         walls.AddComponent<Rigidbody>();
         player.AddComponent<Rigidbody>();
         GameOverText.AddComponent<Rigidbody>();
@@ -49,5 +54,9 @@ public class GameOverScript : MonoBehaviour
         Debug.Log("Game OVER");
         
     }
+    
+    
+    
+    
     
 }

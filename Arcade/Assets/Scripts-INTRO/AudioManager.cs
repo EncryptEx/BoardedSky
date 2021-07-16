@@ -29,14 +29,7 @@ public class AudioManager : MonoBehaviour
     
     }
 
-    private void Update()
-    {
-        if (volume != 999f)
-        {
-            Debug.Log("volume now is set. to"+volume);
-            audio.volume = volume;
-        }
-    }
+    
 
     // Update is called once per frame
     public void Click()
@@ -71,6 +64,34 @@ public class AudioManager : MonoBehaviour
 
     }
     
-    
-    
+    public IEnumerator FadeOut()
+    {
+        Debug.Log("STARTING FADEOUT");
+        while (audio.volume > 0f) //for future whould be user's predef. 
+        {
+            Debug.Log(audio.volume);
+            //Debug.Log("augmenting volume"+am.volume);
+            audio.volume -= 0.01f;
+            yield return null;
+        }
+        audio.volume = 0f;
+    }
+
+
+    public void PlayAndFadeInGameOverMusic()
+    {
+        audio.Stop();
+        StartCoroutine(Fade());
+        audio.PlayOneShot(audios[4]);
+    }
+
+    public void PlayOneMoreLife()
+    {
+        audio.PlayOneShot(audios[6]);
+    }
+
+    public void PlayLessLife()
+    {
+        audio.PlayOneShot(audios[5]);
+    }
 }

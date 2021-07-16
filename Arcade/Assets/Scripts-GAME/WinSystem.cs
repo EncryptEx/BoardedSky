@@ -7,9 +7,11 @@ public class WinSystem : MonoBehaviour
 {
     public BricksBuilding bb;
     public LivesManager lm;
+    private AudioManager am;
     private void Start()
     {
         bb = GameObject.Find("SpawnBricks").GetComponent<BricksBuilding>();
+        am = GameObject.Find("SoundSystem").GetComponent<AudioManager>();
     }
 
     public void CheckForExistingBricks()
@@ -26,6 +28,7 @@ public class WinSystem : MonoBehaviour
             if (lm.lives <= 5)
             {
                 lm.lives++;
+                am.PlayOneMoreLife();
             }
             else
             {

@@ -611,7 +611,11 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 518891dffaaf047429d4f5fa54f4a55c, type: 3}
   - {fileID: 8300000, guid: 0903a22470c5c3449bba0184e6e565ea, type: 3}
   - {fileID: 8300000, guid: 530d1000abdbd1e4c8e07110ca29ffca, type: 3}
+  - {fileID: 8300000, guid: 4b71fcce9fd339748a44c17846797de9, type: 3}
+  - {fileID: 8300000, guid: 92428393e71ce0e4a9e60d68016f679e, type: 3}
+  - {fileID: 8300000, guid: aaa10c8ffa2d57842aef8fc61a532838, type: 3}
   volume: 1
+  audio: {fileID: 0}
 --- !u!1 &548128398
 GameObject:
   m_ObjectHideFlags: 0
