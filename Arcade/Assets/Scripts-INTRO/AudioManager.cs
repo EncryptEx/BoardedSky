@@ -70,6 +70,20 @@ public class AudioManager : MonoBehaviour
         audio.volume = 1f;
 
     }
+    public IEnumerator FadeOut()
+    {
+        Debug.Log("STARTING FADEOUT");
+        while (audio.volume > 0f) //for future whould be user's predef. 
+        {
+            Debug.Log(audio.volume);
+            //Debug.Log("augmenting volume"+am.volume);
+            audio.volume -= 0.01f;
+            yield return null;
+        }
+
+        audio.volume = 0f;
+
+    }
     
     
 }
