@@ -437,6 +437,12 @@ MonoBehaviour:
   lightcomp: {fileID: 1238191145}
   sm: {fileID: 1709379553}
   go: {fileID: 419255897}
+  heart1: {fileID: 555712287}
+  heart2: {fileID: 1050799844}
+  heart3: {fileID: 1645321024}
+  Gheart1: {fileID: 319998624}
+  Gheart2: {fileID: 540113881}
+  Gheart3: {fileID: 188808758}
 --- !u!1 &290309811
 GameObject:
   m_ObjectHideFlags: 0
