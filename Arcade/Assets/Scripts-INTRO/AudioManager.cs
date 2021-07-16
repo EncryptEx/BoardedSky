@@ -9,7 +9,7 @@ public class AudioManager : MonoBehaviour
 
     public float volume = 1f;
     // Start is called before the first frame update
-    private AudioSource audio;
+    public AudioSource audio;
     
     public static AudioManager Instance;
 
@@ -20,6 +20,7 @@ public class AudioManager : MonoBehaviour
     }
     void Start()
     {
+        volume = 999f;
         audio = this.GetComponent<AudioSource>();
         audio.playOnAwake = true;
         audio.clip = audios[0];
@@ -30,7 +31,11 @@ public class AudioManager : MonoBehaviour
 
     private void Update()
     {
-        audio.volume = volume;
+        if (volume != 999f)
+        {
+            Debug.Log("volume now is set. to"+volume);
+            audio.volume = volume;
+        }
     }
 
     // Update is called once per frame
@@ -40,6 +45,31 @@ public class AudioManager : MonoBehaviour
         audio.PlayOneShot(audios[randomAudioClick]); //click
     }
 
-  
+    public void PlayInGameMusic()
+    {
+        //but first a fade ENTRY
+        audio.Stop();
+        audio.clip = audios[3];
+        audio.loop = true;
+        audio.Play();
+        StartCoroutine(Fade());
+    
+    }
+    
+    public IEnumerator Fade()
+    {
+        Debug.Log("STARTING FADEIN");
+        while (audio.volume < 1f) //for future whould be user's predef. 
+        {
+            Debug.Log(audio.volume);
+            //Debug.Log("augmenting volume"+am.volume);
+            audio.volume += 0.01f;
+            yield return null;
+        }
+
+        audio.volume = 1f;
+
+    }
+    
     
 }

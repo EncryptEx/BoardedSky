@@ -24,14 +24,14 @@ public class NextScreen : MonoBehaviour
     public IEnumerator Fade()
     {
         AudioManager.Instance.Click();
-        while (am.volume > 0f)
+        while (am.audio.volume > 0f)
         {
             //Debug.Log("reducing volume"+am.volume);
-            am.volume -= 0.01f;
+            am.audio.volume -= 0.01f;
             yield return null;
         }
 
-        am.volume = 0f;
+        am.audio.volume = 0f;
         
         SceneManager.LoadScene(1);
     }
