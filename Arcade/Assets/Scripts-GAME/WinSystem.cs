@@ -11,7 +11,7 @@ public class WinSystem : MonoBehaviour
     private void Start()
     {
         bb = GameObject.Find("SpawnBricks").GetComponent<BricksBuilding>();
-        am = GameObject.Find("SoundSystem").GetComponent<AudioManager>();
+        //am = GameObject.Find("SoundSystem").GetComponent<AudioManager>();
     }
 
     public void CheckForExistingBricks()
@@ -27,8 +27,9 @@ public class WinSystem : MonoBehaviour
             //add life to player as a reward 
             if (lm.lives <= 5)
             {
+                // add velocity to ball or make it more difficult. x1.2 -- both 
                 lm.lives++;
-                am.PlayOneMoreLife();
+                AudioManager.Instance.PlayOneMoreLife();
             }
             else
             {

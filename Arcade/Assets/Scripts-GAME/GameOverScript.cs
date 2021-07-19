@@ -21,10 +21,11 @@ public class GameOverScript : MonoBehaviour
         DontDestroyOnLoad(this);
     }
 
-
+    
     private void Start()
     {
         am = GameObject.Find("SoundSystem").GetComponent<AudioManager>();
+        AudioManager.Instance.audio.volume = 1f;
         gameover = false; //always!
     }
 

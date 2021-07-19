@@ -16,7 +16,7 @@ public class LivesManager : MonoBehaviour
     public GameOverScript go;
     
     //audiomanager link
-    private AudioManager am;
+    
     
     //hearts link.
     public GameObject heart1;
@@ -85,10 +85,6 @@ public class LivesManager : MonoBehaviour
         }
     }
     
-    void Start()
-    {
-       am = GameObject.Find("SoundSystem").GetComponent<AudioManager>();
-    }
     
     public void UserHasLostABall()
     {
@@ -102,7 +98,7 @@ public class LivesManager : MonoBehaviour
         {
             lives--;
             Debug.Log("Minus 1 Life");
-            am.PlayLessLife();
+            AudioManager.Instance.PlayLessLife();
             //LIVE SUBSTRACTED, NOW NEED TO SPAWN A NEW BALL. 
             sm.SpawnDelayedBall();
             

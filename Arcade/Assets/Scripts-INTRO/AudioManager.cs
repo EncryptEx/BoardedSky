@@ -7,7 +7,7 @@ public class AudioManager : MonoBehaviour
 {
     public AudioClip[] audios;
 
-    public float volume = 1f;
+    //public float volume = 1f;
     // Start is called before the first frame update
     public AudioSource audio;
     
@@ -20,7 +20,7 @@ public class AudioManager : MonoBehaviour
     }
     void Start()
     {
-        volume = 999f;
+        
         audio = this.GetComponent<AudioSource>();
         audio.playOnAwake = true;
         audio.clip = audios[0];
