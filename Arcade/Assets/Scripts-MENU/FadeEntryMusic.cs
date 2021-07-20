@@ -8,7 +8,7 @@ public class FadeEntryMusic : MonoBehaviour
     public AudioManager am;
     void Start()
     {
-        am = GameObject.Find("SoundSystem").GetComponent<AudioManager>();
+        am = AudioManager.Instance;
         AudioManager.Instance.Click();
         StartCoroutine(am.Fade());
         Debug.Log("Starting coroutine entry music at intro.");

@@ -5,10 +5,8 @@ using UnityEngine.UI;
 
 public class SetValueVolumeSlider : MonoBehaviour
 {
-    private AudioManager am;
-   void Start()
+    void Start()
     {
-        am = GameObject.Find("SoundSystem").GetComponent<AudioManager>();
-        this.GetComponent<Slider>().value = am.volume;
+        this.GetComponent<Slider>().value = AudioManager.Instance.audio.volume;
     }
 }

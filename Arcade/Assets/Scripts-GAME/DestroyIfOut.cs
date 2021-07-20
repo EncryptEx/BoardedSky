@@ -6,15 +6,11 @@ using UnityEngine;
 
 public class DestroyIfOut : MonoBehaviour
 {
-    //public GameObject gameOverLight;
-
-    public GameOverScript g;
     [Tooltip("LivesManager Script ( Lives System) ")]
     public LivesManager lm;
 
     private void Start()
     {
-        g = GameObject.Find("GameOverSystem").GetComponent<GameOverScript>();
         lm = GameObject.Find("LivesSystem").GetComponent<LivesManager>();
     }
 

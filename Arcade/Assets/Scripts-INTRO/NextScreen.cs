@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class NextScreen : MonoBehaviour
 {
-    public AudioManager am;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,14 +23,14 @@ public class NextScreen : MonoBehaviour
     public IEnumerator Fade()
     {
         AudioManager.Instance.Click();
-        while (am.audio.volume > 0f)
+        while (AudioManager.Instance.audio.volume > 0f)
         {
             //Debug.Log("reducing volume"+am.volume);
-            am.audio.volume -= 0.01f;
+            AudioManager.Instance.audio.volume -= 0.01f;
             yield return null;
         }
 
-        am.audio.volume = 0f;
+        AudioManager.Instance.audio.volume = 0f;
         
         SceneManager.LoadScene(1);
     }
