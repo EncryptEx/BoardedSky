@@ -1,6 +1,5 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
 public class LivesManager : MonoBehaviour
@@ -26,68 +25,71 @@ public class LivesManager : MonoBehaviour
     public GameObject Gheart2;
     public GameObject Gheart3;
 
-
+    private GameOverScript g;
 
     private void Update()
     {
         //display hearts in function of lives var.
-
-        switch (lives)
+        if (!g.gameover)
         {
-            case 5: //6 lives, max. 
-                heart1.SetActive(false);
-                heart2.SetActive(false);
-                heart3.SetActive(false);
-                Gheart1.SetActive(true);
-                Gheart2.SetActive(true);
-                Gheart3.SetActive(true);
-                break;
-            case 4: //5 lives
-                heart1.SetActive(false);
-                heart2.SetActive(false);
-                heart3.SetActive(true);
-                Gheart1.SetActive(true);
-                Gheart2.SetActive(true);
-                Gheart3.SetActive(false);
-                break;
-            case 3: //4 lives
-                heart1.SetActive(false);
-                heart2.SetActive(true);
-                heart3.SetActive(true);
-                Gheart1.SetActive(true);
-                Gheart2.SetActive(false);
-                Gheart3.SetActive(false);
-                break;
-            case 2: //3 lives.
-                heart1.SetActive(true);
-                heart2.SetActive(true);
-                heart3.SetActive(true);
-                Gheart1.SetActive(false);
-                Gheart2.SetActive(false);
-                Gheart3.SetActive(false);
-                break;
-            case 1: // 2 lives
-                heart1.SetActive(true);
-                heart2.SetActive(true);
-                heart3.SetActive(false);
-                Gheart1.SetActive(false);
-                Gheart2.SetActive(false);
-                Gheart3.SetActive(false);
-                break;
-            case 0: //1 live
-                heart1.SetActive(true);
-                heart2.SetActive(false);
-                heart3.SetActive(false);
-                Gheart1.SetActive(false);
-                Gheart2.SetActive(false);
-                Gheart3.SetActive(false);
-                break;
+            switch (lives)
+            {
+                case 5: //6 lives, max. 
+                    heart1.SetActive(false);
+                    heart2.SetActive(false);
+                    heart3.SetActive(false);
+                    Gheart1.SetActive(true);
+                    Gheart2.SetActive(true);
+                    Gheart3.SetActive(true);
+                    break;
+                case 4: //5 lives
+                    heart1.SetActive(false);
+                    heart2.SetActive(false);
+                    heart3.SetActive(true);
+                    Gheart1.SetActive(true);
+                    Gheart2.SetActive(true);
+                    Gheart3.SetActive(false);
+                    break;
+                case 3: //4 lives
+                    heart1.SetActive(false);
+                    heart2.SetActive(true);
+                    heart3.SetActive(true);
+                    Gheart1.SetActive(true);
+                    Gheart2.SetActive(false);
+                    Gheart3.SetActive(false);
+                    break;
+                case 2: //3 lives.
+                    heart1.SetActive(true);
+                    heart2.SetActive(true);
+                    heart3.SetActive(true);
+                    Gheart1.SetActive(false);
+                    Gheart2.SetActive(false);
+                    Gheart3.SetActive(false);
+                    break;
+                case 1: // 2 lives
+                    heart1.SetActive(true);
+                    heart2.SetActive(true);
+                    heart3.SetActive(false);
+                    Gheart1.SetActive(false);
+                    Gheart2.SetActive(false);
+                    Gheart3.SetActive(false);
+                    break;
+                case 0: //1 live
+                    heart1.SetActive(true);
+                    heart2.SetActive(false);
+                    heart3.SetActive(false);
+                    Gheart1.SetActive(false);
+                    Gheart2.SetActive(false);
+                    Gheart3.SetActive(false);
+                    break;
+            } 
         }
     }
     
     void Start()
     {
-       am = GameObject.Find("SoundSystem").GetComponent<AudioManager>();
+       am = AudioManager.Instance;
+       g = GameOverScript.Instance;
     }
     
     public void UserHasLostABall()

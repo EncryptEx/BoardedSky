@@ -1,6 +1,5 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 //SCRIPT TO CHANGE BACKGROUND LIGHTNING WHEN COLLIDING
 public class ProjectilePoints : MonoBehaviour

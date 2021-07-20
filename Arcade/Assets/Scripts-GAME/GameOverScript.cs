@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GameOverScript : MonoBehaviour
 {
@@ -14,7 +13,7 @@ public class GameOverScript : MonoBehaviour
     
     [Tooltip("Game Over Light")] public GameObject gameOverLight;
     
-    public GameOverScript Instance;
+    static public GameOverScript Instance;
     private void Awake()
     {
         Instance = this;
