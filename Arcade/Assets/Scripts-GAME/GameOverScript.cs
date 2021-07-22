@@ -46,9 +46,6 @@ public class GameOverScript : MonoBehaviour
         GameOverText.AddComponent<Rigidbody>();
         Destroy(uiToDelete);
 
-        var alt = GameOverText.gameObject.GetComponent<RectTransform>().position.y;
-
-
         //just for debug
         Debug.Log("Game OVER");
     }

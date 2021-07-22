@@ -10,8 +10,17 @@ public class Points : MonoBehaviour
 
     public TextMeshProUGUI timeText;
 
-    // Start is called before the first frame update
+    public float currentTime;
+
+    private Points _points;
+
     private float startedTime;
+
+    private void Awake()
+    {
+        Instance = this;
+        DontDestroyOnLoad(this);
+    }
 
     private void Start()
     {
@@ -24,7 +33,7 @@ public class Points : MonoBehaviour
     {
         if (!go.gameover)
         {
-            var currentTime = Time.time - startedTime;
+            currentTime = Time.time - startedTime;
             var minutes = currentTime / 60f;
             var seconds = currentTime % 60;
             timeText.text = minutes.ToString("00") + ":" + seconds.ToString("00");
