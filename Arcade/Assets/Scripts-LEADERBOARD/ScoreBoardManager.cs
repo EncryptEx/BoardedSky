@@ -15,6 +15,7 @@ public class ScoreBoardManager : MonoBehaviour
     private void Start()
     {
         StartCoroutine(GetRequest(_getURL));
+        statusText.text = "Loading"; //prevent from seeing test data.
     }
 
     private IEnumerator GetRequest(string uri)
@@ -23,10 +24,7 @@ public class ScoreBoardManager : MonoBehaviour
         {
             // Request and wait for the desired page.
             yield return webRequest.SendWebRequest();
-
-            var pages = uri.Split('/');
-            var page = pages.Length - 1;
-
+            
             switch (webRequest.result)
             {
                 case UnityWebRequest.Result.ConnectionError:

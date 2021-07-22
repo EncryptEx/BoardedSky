@@ -9,7 +9,7 @@ public class WinSystem : MonoBehaviour
     private void Start()
     {
         bb = GameObject.Find("SpawnBricks").GetComponent<BricksBuilding>();
-        am = GameObject.Find("SoundSystem").GetComponent<AudioManager>();
+        am = AudioManager.Instance;
     }
 
     public void CheckForExistingBricks()

@@ -23,7 +23,7 @@ public class GameOverScript : MonoBehaviour
 
     private void Start()
     {
-        am = GameObject.Find("SoundSystem").GetComponent<AudioManager>();
+        am = AudioManager.Instance;
         gameover = false; //always!
     }
 

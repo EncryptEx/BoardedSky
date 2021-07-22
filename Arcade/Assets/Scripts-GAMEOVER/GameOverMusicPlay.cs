@@ -7,7 +7,7 @@ public class GameOverMusicPlay : MonoBehaviour
 
     private void Start()
     {
-        am = GameObject.Find("SoundSystem").GetComponent<AudioManager>();
+        am = AudioManager.Instance;
         am.PlayAndFadeInGameOverMusic();
     }
 }
