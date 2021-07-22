@@ -1,5 +1,3 @@
-using System;
-
 using UnityEngine;
 
 public class LivesManager : MonoBehaviour
@@ -8,15 +6,10 @@ public class LivesManager : MonoBehaviour
 
     public GameObject lightcomp;
 
-    [Tooltip("SpawnManager Script")]
-    public SpawnManager sm;
-    
-    [Tooltip("GameOver Script")]
-    public GameOverScript go;
-    
-    //audiomanager link
-    private AudioManager am;
-    
+    [Tooltip("SpawnManager Script")] public SpawnManager sm;
+
+    [Tooltip("GameOver Script")] public GameOverScript go;
+
     //hearts link.
     public GameObject heart1;
     public GameObject heart2;
@@ -25,13 +18,21 @@ public class LivesManager : MonoBehaviour
     public GameObject Gheart2;
     public GameObject Gheart3;
 
+    //audiomanager link
+    private AudioManager am;
+
     private GameOverScript g;
+
+    private void Start()
+    {
+        am = AudioManager.Instance;
+        g = GameOverScript.Instance;
+    }
 
     private void Update()
     {
         //display hearts in function of lives var.
         if (!g.gameover)
-        {
             switch (lives)
             {
                 case 5: //6 lives, max. 
@@ -82,16 +83,9 @@ public class LivesManager : MonoBehaviour
                     Gheart2.SetActive(false);
                     Gheart3.SetActive(false);
                     break;
-            } 
-        }
+            }
     }
-    
-    void Start()
-    {
-       am = AudioManager.Instance;
-       g = GameOverScript.Instance;
-    }
-    
+
     public void UserHasLostABall()
     {
         Debug.Log("Action Recieved.");
@@ -107,8 +101,6 @@ public class LivesManager : MonoBehaviour
             am.PlayLessLife();
             //LIVE SUBSTRACTED, NOW NEED TO SPAWN A NEW BALL. 
             sm.SpawnDelayedBall();
-            
-            
         }
     }
 }

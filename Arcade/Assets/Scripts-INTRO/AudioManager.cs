@@ -1,40 +1,37 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
+    public static AudioManager Instance;
     public AudioClip[] audios;
 
     public float volume = 1f;
+
     // Start is called before the first frame update
     public AudioSource audio;
-    
-    public static AudioManager Instance;
 
     private void Awake()
     {
         Instance = this;
         DontDestroyOnLoad(this);
     }
-    void Start()
+
+    private void Start()
     {
         volume = 999f;
-        audio = this.GetComponent<AudioSource>();
+        audio = GetComponent<AudioSource>();
         audio.playOnAwake = true;
         audio.clip = audios[0];
         audio.loop = true;
         audio.Play();
-    
     }
 
-    
 
     // Update is called once per frame
     public void Click()
     {
-        int randomAudioClick = UnityEngine.Random.Range(1, 2);
+        var randomAudioClick = Random.Range(1, 2);
         audio.PlayOneShot(audios[randomAudioClick]); //click
     }
 
@@ -46,9 +43,8 @@ public class AudioManager : MonoBehaviour
         audio.loop = true;
         audio.Play();
         StartCoroutine(Fade());
-    
     }
-    
+
     public IEnumerator Fade()
     {
         Debug.Log("STARTING FADEIN");
@@ -61,9 +57,8 @@ public class AudioManager : MonoBehaviour
         }
 
         audio.volume = 1f;
-
     }
-    
+
     public IEnumerator FadeOut()
     {
         Debug.Log("STARTING FADEOUT");
@@ -74,6 +69,7 @@ public class AudioManager : MonoBehaviour
             audio.volume -= 0.01f;
             yield return null;
         }
+
         audio.volume = 0f;
     }
 

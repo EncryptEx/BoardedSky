@@ -1,13 +1,12 @@
-using System;
-
 using UnityEngine;
+
 //SCRIPT TO CHANGE BACKGROUND LIGHTNING WHEN COLLIDING
 public class ProjectilePoints : MonoBehaviour
 {
     public Points po;
     public LightManager lightManager;
+    public int count;
     private WinSystem b;
-    public int count = 0;
 
     private void Start()
     {
@@ -18,9 +17,8 @@ public class ProjectilePoints : MonoBehaviour
     }
 
     //called when collides with a brick.
-  private void OnCollisionEnter(Collision other)
+    private void OnCollisionEnter(Collision other)
     {
-        
         if (other.gameObject.CompareTag("brick"))
         {
             lightManager.ChangeLights();
@@ -28,7 +26,6 @@ public class ProjectilePoints : MonoBehaviour
             po.Updatecounter(count);
             // check for exisitng bricks.
             b.CheckForExistingBricks();
-           
         }
     }
 }

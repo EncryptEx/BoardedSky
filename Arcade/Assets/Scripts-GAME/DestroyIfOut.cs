@@ -1,6 +1,3 @@
-using System;
-
-using System.Security.Cryptography;
 using UnityEngine;
 
 public class DestroyIfOut : MonoBehaviour
@@ -20,7 +17,7 @@ public class DestroyIfOut : MonoBehaviour
         //just only for GAMEOVER.
         if (other.CompareTag("gameover") && gameObject.CompareTag("projectile"))
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
             // not game over, just substract 1 from lives var.
             //g.GameOver();
 

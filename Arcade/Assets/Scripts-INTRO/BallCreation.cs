@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BallCreation : MonoBehaviour
@@ -9,17 +7,17 @@ public class BallCreation : MonoBehaviour
     public float rtime = 1.5f;
 
     public Vector3 scaleBall = new Vector3(1, 1, 1);
+
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        InvokeRepeating("CreateBall",0,rtime);   
+        InvokeRepeating("CreateBall", 0, rtime);
     }
 
-    void CreateBall()
+    private void CreateBall()
     {
         var ballinstance = Instantiate(ball);
-        ballinstance.transform.position = this.transform.position;
+        ballinstance.transform.position = transform.position;
         ballinstance.transform.localScale = scaleBall;
-
     }
 }

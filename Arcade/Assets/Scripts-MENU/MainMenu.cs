@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -17,7 +15,7 @@ public class MainMenu : MonoBehaviour
     {
         StartCoroutine(FadeOut());
     }
-    
+
     public void LoadScore()
     {
         StartCoroutine(LoadScoreBoard());
@@ -27,7 +25,7 @@ public class MainMenu : MonoBehaviour
     {
         Application.Quit();
     }
-    
+
     private IEnumerator FadeOut()
     {
         Debug.Log("STARTING FADEOUT");
@@ -42,6 +40,7 @@ public class MainMenu : MonoBehaviour
         am.audio.volume = 0f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
+
     private IEnumerator LoadScoreBoard()
     {
         Debug.Log("STARTING FADEOUT SCOREBOARD");
