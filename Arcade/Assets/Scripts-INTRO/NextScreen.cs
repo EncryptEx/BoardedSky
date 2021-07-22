@@ -1,23 +1,18 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class NextScreen : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if (Input.anyKeyDown)
-        {
-           StartCoroutine(Fade());
-        }
+        if (Input.anyKeyDown) StartCoroutine(Fade());
     }
 
     public IEnumerator Fade()
@@ -31,7 +26,7 @@ public class NextScreen : MonoBehaviour
         }
 
         AudioManager.Instance.audio.volume = 0f;
-        
+
         SceneManager.LoadScene(1);
     }
 }
