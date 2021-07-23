@@ -7,8 +7,10 @@ public class ScoreBoardManager : MonoBehaviour
 {
     public TextMeshProUGUI statusText;
 
+    
+    
     private readonly string _getURL = "YOUR URL GOES HERE";
-
+    
 
     private void Start()
     {

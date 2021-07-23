@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
-
+using System;
 public class SubmitScoreData : MonoBehaviour
 {
     public GameObject preStatusText;
@@ -16,8 +16,11 @@ public class SubmitScoreData : MonoBehaviour
         var p = Points.Instance;
         var score = p.countt;
         var username = userName;
-        var donewith = p.currentTime;
-        var doneat = Time.time;
+        var currentTime = p.currentTime;
+        var minutes = currentTime / 60f;
+        var seconds = currentTime % 60;
+        var donewith = minutes.ToString("00") + ":" + seconds.ToString("00");
+        var doneat = System.DateTime.Now.ToString("d");
 
         //ready to call function.
         statusText = preStatusText.GetComponent<TextMeshProUGUI>();
@@ -25,12 +28,12 @@ public class SubmitScoreData : MonoBehaviour
         preStatusText.SetActive(true);
     }
 
-    public IEnumerator PostScores(string username, int score, float doneat, float donewith)
+    public IEnumerator PostScores(string username, int score, string doneat, string donewith)
     {
         Debug.Log("POST SCORES WORKING");
         var uri = _insertURL + "name=" + UnityWebRequest.EscapeURL(username) + "&score=" + score + "&doneat=" +
-                  UnityWebRequest.EscapeURL(doneat.ToString()) + "&donewith=" +
-                  UnityWebRequest.EscapeURL(donewith.ToString());
+                  UnityWebRequest.EscapeURL(doneat) + "&donewith=" +
+                  UnityWebRequest.EscapeURL(donewith);
 
         using (var webRequest = UnityWebRequest.Get(uri))
         {

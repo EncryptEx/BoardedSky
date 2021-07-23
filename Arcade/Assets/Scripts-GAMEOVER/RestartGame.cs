@@ -14,6 +14,7 @@ public class RestartGame : MonoBehaviour
         - DifficultyBrickSaver
         - GameOverSystem
         - GameOverText
+        - CredentialsManager
         
         ==== LIST OF OPTIONALS: ==== (depending of what the user clicks or uses)
         none at the moment. this section could be useful for future :)
@@ -27,6 +28,7 @@ public class RestartGame : MonoBehaviour
         var diff = GameObject.Find("DifficultyBrickSaver");
         var go = GameObject.Find("GameOverSystem");
         var got = GameObject.Find("GameOverText");
+        var pass = GameObject.Find("CredentialsManager");
         
         Destroy(variablesaver);
         Destroy(soundsys);
@@ -35,6 +37,7 @@ public class RestartGame : MonoBehaviour
         Destroy(diff);
         Destroy(go);
         Destroy(got);
+        Destroy(pass);
 
         // now we're ready to change from scenes. 
         SceneManager.LoadScene(0);
