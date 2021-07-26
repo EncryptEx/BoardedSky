@@ -8,6 +8,7 @@ TagManager:
   - brick
   - gameover
   - soundsys
+  - fadeui
   layers:
   - Default
   - TransparentFX

@@ -4,15 +4,24 @@ using UnityEngine.SceneManagement;
 
 public class NextScreen : MonoBehaviour
 {
+    public GameObject UIFade;
+    private RectTransform UIFadeComp;
     // Start is called before the first frame update
     private void Start()
     {
+        UIFadeComp = UIFade.GetComponent<RectTransform>();
+        UIFade.SetActive(false);
     }
 
     // Update is called once per frame
     private void Update()
     {
-        if (Input.anyKeyDown) StartCoroutine(Fade());
+        if (Input.anyKeyDown)
+        {
+            StartCoroutine(Fade());
+            UIFade.SetActive(true);
+            StartCoroutine(FadeOutUI());
+        }
     }
 
     public IEnumerator Fade()
@@ -29,4 +38,30 @@ public class NextScreen : MonoBehaviour
 
         SceneManager.LoadScene(1);
     }
+
+    IEnumerator FadeOutUI()
+    {
+        while (SetSizeDown(UIFadeComp,-1.8f))
+            
+            {
+               yield return null;  
+            }
+    }
+    
+     bool SetSizeDown(RectTransform trans, float multiplier) {
+        Vector2 oldSize = trans.rect.size;
+        Vector2 finalSize = oldSize * multiplier * Time.deltaTime;
+        trans.offsetMin = trans.offsetMin - new Vector2(finalSize.x * trans.pivot.x, finalSize.y * trans.pivot.y);
+        trans.offsetMax = trans.offsetMax + new Vector2(finalSize.x * (1f - trans.pivot.x), finalSize.y * (1f - trans.pivot.y));
+        if (finalSize.x > 1 || finalSize.y > 1)
+        {
+            Debug.Log(finalSize.x+" | "+finalSize.y);
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+    
 }
