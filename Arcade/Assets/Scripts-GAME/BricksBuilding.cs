@@ -37,7 +37,7 @@ public class BricksBuilding : MonoBehaviour
             rows = randRows;
         }
 
-        var distCols = 13 / cols;
+        var distCols = 20 / cols;
         Debug.Log("distcols:" + distCols);
 
         var distRows = 8 / rows;
@@ -53,7 +53,7 @@ public class BricksBuilding : MonoBehaviour
         for (var i = 0; i < cols; i++)
         {
             //brickPositions.Add(new Vector3(distCols * i, 0, distRows * i));
-            var brickPos = new Vector3(distCols * (i * 1.2f) - 22 + col.size.x, 1, distRows * r + col.size.z);
+            var brickPos = new Vector3(distCols * (i * 1.5f) - 22 + col.size.x, 1, distRows * r + col.size.z);
             Debug.Log("brickpos " + i + "|" + r + brickPos);
             var brickInstance = Instantiate(brick);
             // brick creates the ref to the points system script.

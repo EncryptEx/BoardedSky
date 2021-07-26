@@ -6278,7 +6278,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &806042702
 Transform:
   m_ObjectHideFlags: 0
@@ -7527,9 +7527,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e34fbcda3dfe144688410c6dce5d9be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cols: 6
-  rows: 3
-  debug: 1
+  cols: 0
+  rows: 0
+  debug: 0
   brick: {fileID: 3594418837254906840, guid: b5b32013aff894449adf93fe3795646c, type: 3}
   col: {fileID: 8394717311571461118, guid: b5b32013aff894449adf93fe3795646c, type: 3}
 --- !u!4 &1861971074
