@@ -8,11 +8,14 @@ public class ScoreBoardManager : MonoBehaviour
     public TextMeshProUGUI statusText;
 
 
-    private readonly string _getURL = "YOUR URL GOES HERE";
+    private string _getURL;
 
 
     private void Start()
     {
+    
+        _getURL = ReadSecrets.Instance.getURL;
+    
         StartCoroutine(GetRequest(_getURL));
         statusText.text = "Loading"; //prevent from seeing test data.
     }

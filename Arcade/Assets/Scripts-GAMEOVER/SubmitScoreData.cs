@@ -9,7 +9,12 @@ public class SubmitScoreData : MonoBehaviour
 {
     public GameObject preStatusText;
     public TextMeshProUGUI statusText;
-    private readonly string _insertURL = "YOUR URL GOES HERE";
+    private string _insertURL;
+
+    private void Start()
+    {
+        _insertURL = ReadSecrets.Instance.insertURL;
+    }
 
     public void UploadData()
     {
