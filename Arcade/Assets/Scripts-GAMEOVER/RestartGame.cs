@@ -1,5 +1,5 @@
-using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RestartGame : MonoBehaviour
 {
@@ -29,7 +29,7 @@ public class RestartGame : MonoBehaviour
         var go = GameObject.Find("GameOverSystem");
         var got = GameObject.Find("GameOverText");
         var pass = GameObject.Find("CredentialsManager");
-        
+
         Destroy(variablesaver);
         Destroy(soundsys);
         Destroy(ui);

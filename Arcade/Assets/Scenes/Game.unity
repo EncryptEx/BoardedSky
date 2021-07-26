@@ -882,7 +882,6 @@ MonoBehaviour:
   uiToDelete: {fileID: 936485824}
   force: 100
   gameOverLight: {fileID: 1238191145}
-  Instance: {fileID: 0}
 --- !u!4 &419255898
 Transform:
   m_ObjectHideFlags: 0
@@ -3277,6 +3276,7 @@ MonoBehaviour:
   countText: {fileID: 1390185376}
   go: {fileID: 419255897}
   timeText: {fileID: 646652143}
+  currentTime: 0
 --- !u!4 &2128890545
 Transform:
   m_ObjectHideFlags: 0

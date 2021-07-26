@@ -1,9 +1,10 @@
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
-using System;
+
 public class SubmitScoreData : MonoBehaviour
 {
     public GameObject preStatusText;
@@ -20,7 +21,7 @@ public class SubmitScoreData : MonoBehaviour
         var minutes = currentTime / 60f;
         var seconds = currentTime % 60;
         var donewith = minutes.ToString("00") + ":" + seconds.ToString("00");
-        var doneat = System.DateTime.Now.ToString("d");
+        var doneat = DateTime.Now.ToString("d");
 
         //ready to call function.
         statusText = preStatusText.GetComponent<TextMeshProUGUI>();
