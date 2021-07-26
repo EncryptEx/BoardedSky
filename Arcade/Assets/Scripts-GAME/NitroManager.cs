@@ -1,14 +1,32 @@
+using System;
 using UnityEngine;
 
 public class NitroManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    private void Start()
-    {
-    }
+   public GameObject nitroAnimation;
+   
+   public bool isNitroAvailable;
+   private AudioManager am;
+   private void Start()
+   {
+      isNitroAvailable = true;
+      am = AudioManager.Instance;
+   }
 
-    // Update is called once per frame
-    private void Update()
-    {
-    }
+   public void DisableNitro()
+   {
+      isNitroAvailable = false;
+      //do an animation
+      //do sound
+      nitroAnimation.SetActive(true);
+      Invoke("DisableAnimation",2);
+      am.PlayNitro();   
+      //ui feedback;
+   }
+
+   void DisableAnimation()
+   {
+      nitroAnimation.SetActive(false);
+   }
+   
 }

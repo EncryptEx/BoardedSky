@@ -4,6 +4,7 @@ public class PlayerController : MonoBehaviour
 {
     public Vector3 startPos;
     public GameOverScript go;
+    public float initialPSValue = 20f;
     public float playerSpeed = 20f;
 
     public float rmax;
@@ -12,11 +13,15 @@ public class PlayerController : MonoBehaviour
     private readonly float smooth = 5.0f;
     private readonly float tiltAngle = 10.0f;
 
+    public NitroManager nm;
+
 
     // Start is called before the first frame update
     private void Start()
     {
         transform.position = startPos;
+        playerSpeed = initialPSValue;
+        
     }
 
     // Update is called once per frame
@@ -24,6 +29,19 @@ public class PlayerController : MonoBehaviour
     {
         if (!go.gameover)
         {
+            //check if wants nitro
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                // check if nitro is available
+                if (nm.isNitroAvailable)
+                {
+                    playerSpeed += 10f;
+                    nm.DisableNitro();
+                    Invoke("ResetPlayerSpeed",2);
+                }
+            }
+            
+            
             // get actual positon
             var pos = transform.position;
             //move horizontally with set speed and time control. The rest is as it is.
@@ -42,5 +60,10 @@ public class PlayerController : MonoBehaviour
             // Dampen towards the target rotation
             transform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime * smooth);
         }
+    }
+
+    void ResetPlayerSpeed()
+    {
+        playerSpeed = initialPSValue;
     }
 }

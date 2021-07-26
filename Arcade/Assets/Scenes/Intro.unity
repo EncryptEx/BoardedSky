@@ -267,6 +267,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   database: {fileID: 0}
+  getURL: 
+  insertURL: 
 --- !u!4 &184697860
 Transform:
   m_ObjectHideFlags: 0
@@ -657,6 +659,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 4b71fcce9fd339748a44c17846797de9, type: 3}
   - {fileID: 8300000, guid: 92428393e71ce0e4a9e60d68016f679e, type: 3}
   - {fileID: 8300000, guid: aaa10c8ffa2d57842aef8fc61a532838, type: 3}
+  - {fileID: 8300000, guid: 7f8e6011697454b4b8d92a5c300064a2, type: 3}
   volume: 1
   audio: {fileID: 0}
 --- !u!1 &548128398

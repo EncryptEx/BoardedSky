@@ -90,4 +90,9 @@ public class AudioManager : MonoBehaviour
     {
         audio.PlayOneShot(audios[5]);
     }
+
+    public void PlayNitro()
+    {
+        audio.PlayOneShot(audios[7]);
+    }
 }

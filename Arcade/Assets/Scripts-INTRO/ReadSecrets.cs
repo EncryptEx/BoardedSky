@@ -14,7 +14,6 @@ public class ReadSecrets : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(this);
         database = Resources.Load<TextAsset>("database");
-        Debug.Log(database.text);
     }
 
     private void Start()
