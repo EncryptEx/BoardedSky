@@ -13,10 +13,15 @@
 
 # Tutorial
 Use the LEFT and RIGHT arrow keys or AD to move horizontally. 
+
 Use the UP and DOWN keys to tilt the player paddle. 
+
 Use the SPACEBAR key to enable the nitro.
+
 The objective is to destroy as much bricks as you can with the less time possible. 
+
 And don't forget to keep you alive... 
+
 Tip: when you destroy all the bricks they reapear and you gain 1 extra life (up to 6 max).
 
 
