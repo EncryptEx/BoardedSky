@@ -6,22 +6,30 @@ public class NextScreen : MonoBehaviour
 {
     public GameObject UIFade;
     private RectTransform UIFadeComp;
+    private bool isAvailableToPress;
+    
     // Start is called before the first frame update
     private void Start()
     {
         UIFadeComp = UIFade.GetComponent<RectTransform>();
         UIFade.SetActive(false);
+        isAvailableToPress = true;
     }
 
     // Update is called once per frame
     private void Update()
     {
-        if (Input.anyKeyDown)
+        if (isAvailableToPress)
         {
-            StartCoroutine(Fade());
-            UIFade.SetActive(true);
-            StartCoroutine(FadeOutUI());
+           if (Input.anyKeyDown)
+               {
+                   isAvailableToPress = false;
+                   StartCoroutine(Fade());
+                   UIFade.SetActive(true);
+                   StartCoroutine(FadeOutUI());
+               } 
         }
+        
     }
 
     public IEnumerator Fade()
@@ -53,13 +61,13 @@ public class NextScreen : MonoBehaviour
         Vector2 finalSize = oldSize * multiplier * Time.deltaTime;
         trans.offsetMin = trans.offsetMin - new Vector2(finalSize.x * trans.pivot.x, finalSize.y * trans.pivot.y);
         trans.offsetMax = trans.offsetMax + new Vector2(finalSize.x * (1f - trans.pivot.x), finalSize.y * (1f - trans.pivot.y));
-        if (finalSize.x > 1 || finalSize.y > 1)
+        Debug.Log(finalSize.x+" | "+finalSize.y);
+        if (finalSize.x > -3.3f || finalSize.y > -3.3f)
         {
-            Debug.Log(finalSize.x+" | "+finalSize.y);
+            //prevent from shrinking too much
+            Debug.Log("true, stop-");
             return false;
-        }
-        else
-        {
+        } else  {
             return true;
         }
     }

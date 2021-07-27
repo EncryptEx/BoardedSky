@@ -11,10 +11,11 @@ public class NitroManager : MonoBehaviour
    public GameObject nitroReady;
    public GameObject nitroUsing;
    public GameObject nitroEmpty;
-   
-   
+
+   private GameOverScript g;
    private void Start()
    {
+      g = GameOverScript.Instance;
       isNitroAvailable = true;
       am = AudioManager.Instance;
       
@@ -40,8 +41,11 @@ public class NitroManager : MonoBehaviour
 
    void DisableAnimation()
    {
-      nitroAnimation.SetActive(false);
-      DisableUI();
+      if (!g.gameover)
+      {
+         nitroAnimation.SetActive(false);
+         DisableUI();
+      }
    }
 
    void DisableUI()

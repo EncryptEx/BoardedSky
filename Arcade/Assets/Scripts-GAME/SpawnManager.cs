@@ -13,7 +13,7 @@ public class SpawnManager : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        Invoke("EnableBall", 2);
+        Invoke("EnableBall", 4);
     }
 
     private void EnableBall()
