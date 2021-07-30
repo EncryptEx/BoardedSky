@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -65,5 +66,34 @@ public class PlayerController : MonoBehaviour
     void ResetPlayerSpeed()
     {
         playerSpeed = initialPSValue;
+    }
+
+
+    public void UserCollectsPowerUp(GameObject powerUp)
+    {
+        //is a power up
+        //detect its power
+        Debug.Log("USER Has recieved action from power up");
+        var power = powerUp.gameObject.GetComponent<PowerUp>().power;
+        switch (power)
+        {
+            case 1:
+                //extraLife
+
+                break;
+
+            case 2:
+                //extraPoints
+
+                break;
+
+            case 3:
+                //extraPaddle
+                float saveLastPaddleValue = transform.localScale.x;
+                //this.transform.localScale.Set(6, transform.localScale.y, transform.localScale.z);
+                Debug.Log(transform.localScale + "   " + transform.localScale.x);
+                break;
+
+        }
     }
 }
