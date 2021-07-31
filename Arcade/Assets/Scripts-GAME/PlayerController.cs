@@ -15,14 +15,19 @@ public class PlayerController : MonoBehaviour
     private readonly float tiltAngle = 10.0f;
 
     public NitroManager nm;
+    public LivesManager lm;
+    public Points p;
+    public AudioManager am;
 
+    private float saveLastPaddleValue;
 
     // Start is called before the first frame update
     private void Start()
     {
+        saveLastPaddleValue = transform.localScale.x;
         transform.position = startPos;
         playerSpeed = initialPSValue;
-        
+        am = AudioManager.Instance;
     }
 
     // Update is called once per frame
@@ -75,25 +80,41 @@ public class PlayerController : MonoBehaviour
         //detect its power
         Debug.Log("USER Has recieved action from power up");
         var power = powerUp.gameObject.GetComponent<PowerUp>().power;
+        Debug.Log("the power up value is "+power);
         switch (power)
         {
             case 1:
                 //extraLife
-
+                lm.PowerOne();
                 break;
 
             case 2:
                 //extraPoints
-
+                p.Updatecounter(150);
+                am.PlayOneMoreLife(); // to replace with another audio.
                 break;
 
             case 3:
                 //extraPaddle
-                float saveLastPaddleValue = transform.localScale.x;
-                //this.transform.localScale.Set(6, transform.localScale.y, transform.localScale.z);
-                Debug.Log(transform.localScale + "   " + transform.localScale.x);
+                
+                ScalePaddle();
                 break;
 
         }
+    }
+
+    void ScalePaddle()
+    {
+        this.transform.localScale = new Vector3(6, transform.localScale.y, transform.localScale.z);
+        Debug.Log(transform.localScale + "   " + transform.localScale.x);
+        Invoke("ResetPaddleSize",2);
+    }
+
+   
+    
+    void ResetPaddleSize()
+    {
+        var originalSize = saveLastPaddleValue;
+        this.transform.localScale = new Vector3(originalSize, transform.localScale.y, transform.localScale.z);
     }
 }

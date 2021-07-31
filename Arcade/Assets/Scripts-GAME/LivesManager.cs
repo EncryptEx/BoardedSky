@@ -23,6 +23,7 @@ public class LivesManager : MonoBehaviour
 
     private GameOverScript g;
 
+    public Points p;
     private void Start()
     {
         am = AudioManager.Instance;
@@ -102,5 +103,23 @@ public class LivesManager : MonoBehaviour
             //LIVE SUBSTRACTED, NOW NEED TO SPAWN A NEW BALL. 
             sm.SpawnDelayedBall();
         }
+    }
+
+    public void PowerOne()
+    {
+        if (lives < 6)
+        {
+            //add life
+            lives++;
+            am.PlayOneMoreLife();
+        }
+        else
+        {
+            //add extra points as an alt reward.
+            p.Updatecounter(230);
+            am.PlayOneMoreLife(); // to change in future. 
+            
+        }
+        
     }
 }

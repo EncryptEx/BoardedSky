@@ -42,6 +42,7 @@ public class PowerUp : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             player.UserCollectsPowerUp(this.gameObject);
+            Destroy(gameObject);
         }
         
     }

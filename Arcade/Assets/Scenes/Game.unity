@@ -7530,6 +7530,9 @@ MonoBehaviour:
   rmax: 7.66
   lmax: -25.32
   nm: {fileID: 949335783}
+  lm: {fileID: 276347370}
+  p: {fileID: 2128890544}
+  am: {fileID: 0}
 --- !u!114 &1338632095
 MonoBehaviour:
   m_ObjectHideFlags: 0
