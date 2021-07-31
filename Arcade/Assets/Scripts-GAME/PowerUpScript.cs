@@ -13,7 +13,7 @@ public class PowerUpScript : MonoBehaviour
          var powerInstance = Instantiate(powerUpPrefab);
          powerInstance.transform.position = position;
          var powerSelector = powerInstance.GetComponent<PowerUp>();
-         var randomInt = UnityEngine.Random.Range(1, 3);
+         var randomInt = UnityEngine.Random.Range(1, 5);
          powerSelector.SelectColor(randomInt);
     }
 }

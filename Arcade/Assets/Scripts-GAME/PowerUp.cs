@@ -25,14 +25,19 @@ public class PowerUp : MonoBehaviour
                this.GetComponent<Renderer>().material.color = extraLifeColor;
                power = 1;
                break;
-           case 2:
-               this.GetComponent<Renderer>().material.color = extraPointsColor;
-               power = 2;
-               break;
-           case 3:
-               this.GetComponent<Renderer>().material.color = extraPaddleColor;
-               power = 3;
-               break;
+          default:
+              var randDecide = UnityEngine.Random.Range(1, 2);
+              if (randDecide == 1)
+              {
+                  this.GetComponent<Renderer>().material.color = extraPointsColor;
+                  power = 2;
+              }
+              else
+              {
+                 this.GetComponent<Renderer>().material.color = extraPaddleColor;
+                 power = 3;
+              }
+              break;
         }
     }
 
