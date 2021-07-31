@@ -22,6 +22,7 @@ public class LivesManager : MonoBehaviour
     private AudioManager am;
 
     private GameOverScript g;
+    public PlayerController pl;
 
     public Points p;
     private void Start()
@@ -112,11 +113,13 @@ public class LivesManager : MonoBehaviour
             //add life
             lives++;
             am.PlayOneMoreLife();
+            pl.WriteOnLogText("+1 life");
         }
         else
         {
             //add extra points as an alt reward.
             p.Updatecounter(230);
+            pl.WriteOnLogText("+230 points");
             am.PlayOneMoreLife(); // to change in future. 
             
         }
