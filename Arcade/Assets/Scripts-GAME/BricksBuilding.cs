@@ -9,12 +9,13 @@ public class BricksBuilding : MonoBehaviour
 
     public GameObject brick;
 
-    public BoxCollider col;
+    private CapsuleCollider col;
     // Start is called before the first frame update
 
 
     private void Start()
     {
+        col = brick.GetComponent<CapsuleCollider>();
         Invoke("GenerateNewBricks", 0);
     }
 
@@ -53,7 +54,7 @@ public class BricksBuilding : MonoBehaviour
         for (var i = 0; i < cols; i++)
         {
             //brickPositions.Add(new Vector3(distCols * i, 0, distRows * i));
-            var brickPos = new Vector3(distCols * (i * 1.5f) - 22 + col.size.x, 1, distRows * r + col.size.z);
+            var brickPos = new Vector3(distCols * (i * 1.5f) - 22 + col.bounds.size.x, 1, distRows * r + col.bounds.size.z);
             Debug.Log("brickpos " + i + "|" + r + brickPos);
             var brickInstance = Instantiate(brick);
             // brick creates the ref to the points system script.
