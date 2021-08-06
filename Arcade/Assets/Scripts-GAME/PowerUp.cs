@@ -41,7 +41,7 @@ public class PowerUp : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter(Collider other)
     {
         Debug.Log("POWER UP HAS COLLIDE");
         if (other.gameObject.CompareTag("Player"))

@@ -13,7 +13,7 @@ public class SAvesettings : MonoBehaviour
     // Start is called before the first frame update
     public void UpdateVolume(float volume)
     {
-        am.audio.volume = volume;
+        am.asrc.volume = volume;
     }
 
     public void UpdateDifficulty(float diff)

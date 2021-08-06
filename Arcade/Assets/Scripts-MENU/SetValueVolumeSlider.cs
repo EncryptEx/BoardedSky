@@ -5,6 +5,6 @@ public class SetValueVolumeSlider : MonoBehaviour
 {
     private void Start()
     {
-        GetComponent<Slider>().value = AudioManager.Instance.audio.volume;
+        GetComponent<Slider>().value = AudioManager.Instance.asrc.volume;
     }
 }
