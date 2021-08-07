@@ -43,7 +43,9 @@ public class Points : MonoBehaviour
     public void Updatecounter(int count)
     {
         countt = countt + count;
-        if (countt > 1000) countText.fontSize = 60f;
+        if (countt > 999) countText.fontSize = 60f;
+        if (countt > 9999) countText.fontSize = 48f;
+        if (countt > 99999) countText.fontSize = 41.5f;
         countText.text = countt.ToString();
     }
 }
