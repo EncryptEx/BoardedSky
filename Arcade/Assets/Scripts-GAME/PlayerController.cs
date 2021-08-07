@@ -54,10 +54,8 @@ public class PlayerController : MonoBehaviour
             var pos = transform.position;
             //move horizontally with set speed and time control. The rest is as it is.
             var newx = Input.GetAxis("Horizontal") * playerSpeed * Time.deltaTime + pos.x;
-            if (newx > rmax) newx = rmax;
-
-            if (newx < lmax) newx = lmax;
-
+            newx = Mathf.Clamp(newx, lmax, rmax); // limit border values
+            
             transform.position = new Vector3(newx, pos.y, pos.z);
             // Smoothly tilts a transform towards a target rotation.
             var tiltAroundY = Input.GetAxis("Vertical") * tiltAngle;

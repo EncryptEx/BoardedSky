@@ -6,6 +6,8 @@ public class ProjectileBehaviour : MonoBehaviour
     public Vector3 startPos;
     private Rigidbody rb;
 
+    private Vector3 prevPos;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -14,5 +16,19 @@ public class ProjectileBehaviour : MonoBehaviour
         transform.position = startPos;
         //forces
         rb.AddForce(new Vector3(1f, 0f, 0.75f) * initialForce);
+
+
+        prevPos = Vector3.zero;
+        InvokeRepeating("StallPrevention", 5f, 1f);
+    }
+
+    private void StallPrevention()
+    {
+        if ( Mathf.Abs(prevPos.y - transform.position.y) < .3f ) // check if ball is stuck
+        {
+            rb.AddForce(new Vector3(Random.value, 0f, Random.value) * initialForce/2f); // generate a random force.
+            AudioManager.Instance.PlayNitro();
+        }
+        prevPos = transform.position;
     }
 }
