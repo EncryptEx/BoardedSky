@@ -17,15 +17,16 @@ public class ProjectileBehaviour : MonoBehaviour
         //forces
         rb.AddForce(new Vector3(1f, 0f, 0.75f) * initialForce);
 
+
         prevPos = Vector3.zero;
         InvokeRepeating("StallPrevention", 5f, 1f);
     }
 
     private void StallPrevention()
     {
-        if ( Mathf.Abs(prevPos.z - transform.position.z) < .3f )
+        if ( Mathf.Abs(prevPos.y - transform.position.y) < .3f ) // check if ball is stuck
         {
-            rb.AddForce(new Vector3(Random.value, 0f, Random.value) * initialForce/2f);
+            rb.AddForce(new Vector3(Random.value, 0f, Random.value) * initialForce/2f); // generate a random force.
             AudioManager.Instance.PlayNitro();
         }
         prevPos = transform.position;
