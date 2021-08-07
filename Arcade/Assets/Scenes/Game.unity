@@ -6897,7 +6897,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 1
+  orthographic: 0
   orthographic size: 15
   m_Depth: -1
   m_CullingMask:
@@ -6922,7 +6922,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -8.39, y: 24.98, z: -5.46}
+  m_LocalPosition: {x: -5.39, y: 24.98, z: -5.46}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -8204,7 +8204,6 @@ MonoBehaviour:
   rows: 0
   debug: 0
   brick: {fileID: 3594418837254906840, guid: b5b32013aff894449adf93fe3795646c, type: 3}
-  col: {fileID: 4932363307573526371, guid: b5b32013aff894449adf93fe3795646c, type: 3}
 --- !u!4 &1861971074
 Transform:
   m_ObjectHideFlags: 0
