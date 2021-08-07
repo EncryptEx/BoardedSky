@@ -61,11 +61,11 @@ public class NextScreen : MonoBehaviour
         Vector2 finalSize = oldSize * multiplier * Time.deltaTime;
         trans.offsetMin = trans.offsetMin - new Vector2(finalSize.x * trans.pivot.x, finalSize.y * trans.pivot.y);
         trans.offsetMax = trans.offsetMax + new Vector2(finalSize.x * (1f - trans.pivot.x), finalSize.y * (1f - trans.pivot.y));
-        Debug.Log(finalSize.x+" | "+finalSize.y);
+        //Debug.Log(finalSize.x+" | "+finalSize.y);
         if (finalSize.x > -3.3f || finalSize.y > -3.3f)
         {
             //prevent from shrinking too much
-            Debug.Log("true, stop-");
+            Debug.Log("true, stop:- "+finalSize.x+" | "+finalSize.y);
             return false;
         } else  {
             return true;

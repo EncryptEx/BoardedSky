@@ -388,7 +388,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec83ebad1c44be04abd0b42854da6e70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialForce: 30000
+  initialForce: 1000
   startPos: {x: -26.72, y: 1, z: 6.2}
 --- !u!1 &276347368
 GameObject:
@@ -6604,7 +6604,7 @@ TrailRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 806042701}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -8073,7 +8073,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   proj: {fileID: 246513992}
   ballPrefab: {fileID: 2104791142623143131, guid: f9fd91f0158aba3419eef1923deacd3e, type: 3}
-  initialForce: 30000
+  initialForce: 1000
 --- !u!1 &1857112762
 GameObject:
   m_ObjectHideFlags: 0
