@@ -7,7 +7,10 @@ Assets/AssetStoreTools*
 
 
 Arcade/[Ll]ibrary/
-Arcade/Assets/Resources/
+Arcade/[Aa]ssets/[Rr]esources/
+Arcade/[Aa]ssets/[Rr]esources/*
+Arcade/[Aa]ssets/[Rr]esources/database.xml
+Arcade/[Aa]ssets/[Rr]esources/database.xml.meta
 Arcade/[Tt]emp/
 Arcade/[Oo]bj/
 Arcade/[Bb]uild/
@@ -46,3 +49,5 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+
+
