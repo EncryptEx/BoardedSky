@@ -5,6 +5,8 @@ public class WinSystem : MonoBehaviour
     public BricksBuilding bb;
     public LivesManager lm;
     private AudioManager am;
+    public NitroManager nm;
+    public ActionsLogger al;
     public Points p;
 
     private void Start()
@@ -28,15 +30,21 @@ public class WinSystem : MonoBehaviour
             if (lm.lives <= 5)
             {
                 lm.lives++;
+                al.WriteOnLogText("+1 life");
                 am.PlayOneMoreLife();
             }
             else
             {
                 Debug.Log("user has 6 lifes. To much.");
-                //maybe 1.1X on score?     or maybe +1000       idk     
+                //as the player has 6 lifes, now it will have 1000 extra points for evey brick full break.  
+                al.WriteOnLogText("+1000 points" +
+                                  "+ Nitro");
+                nm.EnableNitro();
+                am.PlayOneMoreLife();
+                p.Updatecounter(1000);
             }
 
-            //for future check if has more than 6 to not abuse it. 
+            
         }
     }
 }

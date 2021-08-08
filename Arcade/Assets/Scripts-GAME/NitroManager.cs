@@ -16,15 +16,22 @@ public class NitroManager : MonoBehaviour
    private void Start()
    {
       g = GameOverScript.Instance;
-      isNitroAvailable = true;
       am = AudioManager.Instance;
       
-      // prepare ui 
+      // enable all.
+      EnableNitro();
+   }
+
+   public void EnableNitro()
+   {
+      //ui
       nitroReady.SetActive(true);
       nitroUsing.SetActive(false);
       nitroEmpty.SetActive(false);
+      //variables
+      isNitroAvailable = true;
    }
-
+   
    public void DisableNitro()
    {
       nitroReady.SetActive(false);

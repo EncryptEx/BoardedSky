@@ -8546,7 +8546,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bb: {fileID: 1861971073}
   lm: {fileID: 276347370}
-  p: {fileID: 0}
+  nm: {fileID: 949335783}
+  al: {fileID: 1150190988}
+  p: {fileID: 2128890544}
 --- !u!4 &1916022028
 Transform:
   m_ObjectHideFlags: 0
