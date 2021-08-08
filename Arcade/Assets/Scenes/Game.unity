@@ -444,6 +444,7 @@ MonoBehaviour:
   Gheart2: {fileID: 540113881}
   Gheart3: {fileID: 188808758}
   pl: {fileID: 1338632094}
+  al: {fileID: 1150190988}
   p: {fileID: 2128890544}
 --- !u!1 &290309811
 GameObject:
@@ -7014,6 +7015,7 @@ GameObject:
   - component: {fileID: 1150190985}
   - component: {fileID: 1150190987}
   - component: {fileID: 1150190986}
+  - component: {fileID: 1150190988}
   m_Layer: 5
   m_Name: PowerUpsText
   m_TagString: Untagged
@@ -7137,6 +7139,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1150190984}
   m_CullTransparentMesh: 1
+--- !u!114 &1150190988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1150190984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 353027478e5e4fb4186e38ce3e97dc28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  logText: {fileID: 1150190986}
 --- !u!1 &1194547789
 GameObject:
   m_ObjectHideFlags: 0
@@ -7807,7 +7822,7 @@ MonoBehaviour:
   lm: {fileID: 276347370}
   p: {fileID: 2128890544}
   am: {fileID: 0}
-  logText: {fileID: 1150190986}
+  al: {fileID: 1150190988}
 --- !u!114 &1338632095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8531,6 +8546,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bb: {fileID: 1861971073}
   lm: {fileID: 276347370}
+  p: {fileID: 0}
 --- !u!4 &1916022028
 Transform:
   m_ObjectHideFlags: 0

@@ -5,6 +5,7 @@ public class WinSystem : MonoBehaviour
     public BricksBuilding bb;
     public LivesManager lm;
     private AudioManager am;
+    public Points p;
 
     private void Start()
     {

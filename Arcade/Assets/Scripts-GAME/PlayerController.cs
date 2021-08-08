@@ -1,5 +1,4 @@
 using System;
-using TMPro;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -21,7 +20,8 @@ public class PlayerController : MonoBehaviour
     public AudioManager am;
 
     private float saveLastPaddleValue;
-    public TextMeshProUGUI logText;
+
+    public ActionsLogger al;
 
     // Start is called before the first frame update
     private void Start()
@@ -92,13 +92,13 @@ public class PlayerController : MonoBehaviour
             case 2:
                 //extraPoints
                 p.Updatecounter(150);
-                WriteOnLogText("+150 points");
+                al.WriteOnLogText("+150 points");
                 am.PlayOneMoreLife(); // to replace with another audio.
                 break;
 
             case 3:
                 //extraPaddle
-                WriteOnLogText("Longer Paddle");
+                al.WriteOnLogText("Longer Paddle");
                 ScalePaddle();
                 break;
 
@@ -119,15 +119,5 @@ public class PlayerController : MonoBehaviour
         var originalSize = saveLastPaddleValue;
         this.transform.localScale = new Vector3(originalSize, transform.localScale.y, transform.localScale.z);
     }
-
-    public void WriteOnLogText(string textToWrite)
-    {
-        logText.text = textToWrite;
-        Invoke("CleanLogText",2);
-    }
-
-    void CleanLogText()
-    {
-        logText.text = "";
-    }
+    
 }
