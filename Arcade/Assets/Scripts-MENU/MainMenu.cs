@@ -4,11 +4,11 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    private AudioManager am;
-    
     public GameObject UIFade;
-    private RectTransform UIFadeComp;
+    private AudioManager am;
     private bool isAvailableToPress;
+    private RectTransform UIFadeComp;
+
     private void Start()
     {
         isAvailableToPress = true;
@@ -52,7 +52,7 @@ public class MainMenu : MonoBehaviour
         Debug.Log("STARTING FADEOUT");
         while (am.asrc.volume > 0f) //for future whould be user's predef. 
         {
-            Debug.Log(am.asrc.volume);
+            //Debug.Log(am.asrc.volume);
             //Debug.Log("augmenting volume"+am.volume);
             am.asrc.volume -= 0.01f;
             yield return null;
@@ -67,7 +67,7 @@ public class MainMenu : MonoBehaviour
         Debug.Log("STARTING FADEOUT SCOREBOARD");
         while (am.asrc.volume > 0f) //for future whould be user's predef. 
         {
-            Debug.Log(am.asrc.volume);
+            //Debug.Log(am.asrc.volume);
             //Debug.Log("augmenting volume"+am.volume);
             am.asrc.volume -= 0.01f;
             yield return null;
@@ -76,28 +76,27 @@ public class MainMenu : MonoBehaviour
         am.asrc.volume = 0f;
         SceneManager.LoadScene(4);
     }
-    IEnumerator FadeOutUI()
+
+    private IEnumerator FadeOutUI()
     {
-        while (SetSizeDown(UIFadeComp,-1.8f))
-            
-        {
-            yield return null;  
-        }
+        while (SetSizeDown(UIFadeComp, -1.8f)) yield return null;
     }
-    
-    bool SetSizeDown(RectTransform trans, float multiplier) {
-        Vector2 oldSize = trans.rect.size;
-        Vector2 finalSize = oldSize * multiplier * Time.deltaTime;
+
+    private bool SetSizeDown(RectTransform trans, float multiplier)
+    {
+        var oldSize = trans.rect.size;
+        var finalSize = oldSize * multiplier * Time.deltaTime;
         trans.offsetMin = trans.offsetMin - new Vector2(finalSize.x * trans.pivot.x, finalSize.y * trans.pivot.y);
-        trans.offsetMax = trans.offsetMax + new Vector2(finalSize.x * (1f - trans.pivot.x), finalSize.y * (1f - trans.pivot.y));
-        Debug.Log(finalSize.x+" | "+finalSize.y);
+        trans.offsetMax = trans.offsetMax +
+                          new Vector2(finalSize.x * (1f - trans.pivot.x), finalSize.y * (1f - trans.pivot.y));
+        //Debug.Log(finalSize.x+" | "+finalSize.y);
         if (finalSize.x > -3.3f || finalSize.y > -3.3f)
         {
             //prevent from shrinking too much
             Debug.Log("true, stop-");
             return false;
-        } else  {
-            return true;
         }
+
+        return true;
     }
 }

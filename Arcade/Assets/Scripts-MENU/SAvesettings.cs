@@ -7,13 +7,15 @@ public class SAvesettings : MonoBehaviour
 
     private void Start()
     {
-        am = GameObject.FindGameObjectWithTag("soundsys").GetComponent<AudioManager>();
+        am = AudioManager.Instance;
     }
 
     // Start is called before the first frame update
     public void UpdateVolume(float volume)
     {
         am.asrc.volume = volume;
+        if (!am.hasEditedVolume) am.hasEditedVolume = true;
+        am.predefVolume = volume;
     }
 
     public void UpdateDifficulty(float diff)

@@ -5,31 +5,32 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
     public AudioClip[] audios;
-
-    public float volume = 1f;
+    public bool hasEditedVolume;
+    public float predefVolume;
 
     // Start is called before the first frame update
     public AudioSource asrc;
 
-    void Awake()
+    private void Awake()
     {
         if (Instance != null)
         {
             DestroyImmediate(gameObject);
             return;
         }
+
         Instance = this;
-        DontDestroyOnLoad(gameObject);            
+        DontDestroyOnLoad(gameObject);
     }
 
 
     private void Start()
     {
-        volume = 999f;
         asrc = GetComponent<AudioSource>();
         asrc.playOnAwake = true;
         asrc.clip = audios[0];
         asrc.loop = true;
+        asrc.volume = 0.8f;
         asrc.Play();
     }
 
@@ -54,10 +55,10 @@ public class AudioManager : MonoBehaviour
     public IEnumerator Fade()
     {
         Debug.Log("STARTING FADEIN");
-        while (asrc.volume < 1f) //for future whould be user's predef. 
+        var wantedVolume = hasEditedVolume ? predefVolume : 1f;
+        while (asrc.volume < wantedVolume) //for future whould be user's predef. 
         {
-            Debug.Log(asrc.volume);
-            //Debug.Log("augmenting volume"+am.volume);
+            //Debug.Log("augmenting volume"+asrc.volume);
             asrc.volume += 0.01f;
             yield return null;
         }
@@ -70,7 +71,7 @@ public class AudioManager : MonoBehaviour
         Debug.Log("STARTING FADEOUT");
         while (asrc.volume > 0f) //for future whould be user's predef. 
         {
-            Debug.Log(asrc.volume);
+            //Debug.Log(asrc.volume);
             //Debug.Log("augmenting volume"+am.volume);
             asrc.volume -= 0.01f;
             yield return null;

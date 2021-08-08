@@ -21,11 +21,11 @@ public class Brick : MonoBehaviour
     {
         Pw = GameObject.Find("PowerUpsManager").GetComponent<PowerUpScript>();
         bd = GameObject.Find("DifficultyBrickSaver").GetComponent<DifficultyBrickSaver>();
-        Debug.Log("found bd:" + bd);
-        Debug.Log("found pw:" + Pw);
+        //Debug.Log("found bd:" + bd);
+        //Debug.Log("found pw:" + Pw);
 
         var tobrickDiff = bd.diff;
-        Debug.Log(tobrickDiff);
+        //Debug.Log(tobrickDiff);
         //find difficulty set ( 3 modes, 0,1,2)
         if (tobrickDiff == 1)
         {
@@ -57,11 +57,11 @@ public class Brick : MonoBehaviour
         {
             //make disssapear when braking it.
             //possibility to create a power UP
-            Debug.Log("my rand was " + randomP);
+            //Debug.Log("my rand was " + randomP);
             if (randomP > 8f)
             {
                 //throw powerUP
-                Debug.Log("power UP TRIGGER 1ST");
+                //Debug.Log("power UP TRIGGER 1ST");
                 Pw.SpawnNewPowerUp(transform.position);
             }
 

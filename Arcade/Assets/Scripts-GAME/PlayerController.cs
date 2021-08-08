@@ -108,7 +108,7 @@ public class PlayerController : MonoBehaviour
     void ScalePaddle()
     {
         this.transform.localScale = new Vector3(6, transform.localScale.y, transform.localScale.z);
-        Debug.Log(transform.localScale + "   " + transform.localScale.x);
+        //Debug.Log(transform.localScale + "   " + transform.localScale.x);
         Invoke("ResetPaddleSize",2);
     }
 

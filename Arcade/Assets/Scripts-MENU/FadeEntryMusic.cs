@@ -7,6 +7,7 @@ public class FadeEntryMusic : MonoBehaviour
     public AudioManager am;
     public GameObject UIFade;
     private RectTransform UIFadeComp;
+
     private void Start()
     {
         UIFadeComp = UIFade.GetComponent<RectTransform>();
@@ -17,21 +18,23 @@ public class FadeEntryMusic : MonoBehaviour
         Debug.Log("Starting coroutine entry music at intro.");
     }
 
-    IEnumerator UIFadeIn()
+    private IEnumerator UIFadeIn()
     {
-        for (int i = 0; i < 100; i++)
+        for (var i = 0; i < 100; i++)
         {
-            SetSizeUp(UIFadeComp,2f);
+            SetSizeUp(UIFadeComp, 2f);
             yield return null;
         }
 
         UIFade.SetActive(false);
     }
-     void SetSizeUp(RectTransform trans, float multiplier) {
-        Vector2 oldSize = trans.rect.size;
-        Vector2 finalSize = oldSize * multiplier * Time.deltaTime;
+
+    private void SetSizeUp(RectTransform trans, float multiplier)
+    {
+        var oldSize = trans.rect.size;
+        var finalSize = oldSize * multiplier * Time.deltaTime;
         trans.offsetMin = trans.offsetMin - new Vector2(finalSize.x * trans.pivot.x, finalSize.y * trans.pivot.y);
-        trans.offsetMax = trans.offsetMax + new Vector2(finalSize.x * (1f - trans.pivot.x), finalSize.y * (1f - trans.pivot.y));
-        
+        trans.offsetMax = trans.offsetMax +
+                          new Vector2(finalSize.x * (1f - trans.pivot.x), finalSize.y * (1f - trans.pivot.y));
     }
 }

@@ -39,10 +39,10 @@ public class BricksBuilding : MonoBehaviour
         }
 
         var distCols = 20 / cols;
-        Debug.Log("distcols:" + distCols);
+        //Debug.Log("distcols:" + distCols);
 
         var distRows = 8 / rows;
-        Debug.Log("distrows:" + distRows);
+        //Debug.Log("distrows:" + distRows);
 
 
         //add size of brick itself before calculating final brickpos
@@ -55,7 +55,7 @@ public class BricksBuilding : MonoBehaviour
         {
             //brickPositions.Add(new Vector3(distCols * i, 0, distRows * i));
             var brickPos = new Vector3(distCols * (i * 1.5f) - 22 + col.bounds.size.x, 1, distRows * r + col.bounds.size.z);
-            Debug.Log("brickpos " + i + "|" + r + brickPos);
+            //Debug.Log("brickpos " + i + "|" + r + brickPos);
             var brickInstance = Instantiate(brick);
             // brick creates the ref to the points system script.
             brickInstance.transform.position = brickPos;
