@@ -20,7 +20,7 @@ public class TextManager : MonoBehaviour
     //case 2
     public GameObject hearts;
     public GameObject heartTextGameObject;
-    [HideInInspector] public TextMeshProUGUI heartText;
+    [HideInInspector] public TextMeshProUGUI heartTextUGUI;
     
     //case 3
     public GameObject ghearts;
@@ -44,7 +44,7 @@ public class TextManager : MonoBehaviour
         //GameObject Findings and declarations
         playerTextUGUI = playerTextGameObject.GetComponent<TextMeshProUGUI>();
         tilterTextUGUI = tilterTextGameObject.GetComponent<TextMeshProUGUI>();
-        heartText = heartTextGameObject.GetComponent<TextMeshProUGUI>();
+        heartTextUGUI = heartTextGameObject.GetComponent<TextMeshProUGUI>();
         goldenUGUI = goldenTextGameObject.GetComponent<TextMeshProUGUI>();
         
         
@@ -81,9 +81,17 @@ public class TextManager : MonoBehaviour
                 
                 case 2: //lives moment
                     NewCaseProtocol();
-                    
+                    hearts.SetActive(true);
+                    heartTextGameObject.SetActive(true);
+                    textToWrite = "You have lives and you die when you reach 0.";
+                    coroutineSaver = StartCoroutine(StartTypeWritter(textToWrite, heartTextUGUI));
                     break;
                 case 3: // golden moment
+                    NewCaseProtocol();
+                    ghearts.SetActive(true);
+                    goldenTextGameObject.SetActive(true);
+                    textToWrite = "Extra lives are golden:";
+                    coroutineSaver = StartCoroutine(StartTypeWritter(textToWrite, goldenUGUI));
                     break;
             }
             
