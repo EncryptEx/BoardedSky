@@ -7,16 +7,20 @@ public class WinSystem : MonoBehaviour
     private AudioManager am;
     public NitroManager nm;
     public ActionsLogger al;
+    public ProjectileBehaviour pb;
+    private float _velocityMultipier;
     public Points p;
 
     private void Start()
     {
         bb = GameObject.Find("SpawnBricks").GetComponent<BricksBuilding>();
         am = AudioManager.Instance;
+        _velocityMultipier = 1f;
     }
 
     public void CheckForExistingBricks()
     {
+        pb = GameObject.FindWithTag("projectile").GetComponent<ProjectileBehaviour>();
         Debug.Log("Checking if aren't bricks,");
         if (GameObject.FindGameObjectsWithTag("brick").Length == 1
         ) //why 1? bc the checking is done before removing the last one
@@ -43,8 +47,9 @@ public class WinSystem : MonoBehaviour
                 am.PlayOneMoreLife();
                 p.Updatecounter(1000);
             }
-
-            
+            // to make it more difficult, now every time user gets more points but has more velocity. 
+            _velocityMultipier += 0.2f;
+            pb.IncreaseBallSpeed(_velocityMultipier);
         }
     }
 }
