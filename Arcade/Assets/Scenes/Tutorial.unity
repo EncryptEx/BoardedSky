@@ -1325,6 +1325,7 @@ MonoBehaviour:
   ghearts: {fileID: 1886286082}
   goldenTextGameObject: {fileID: 670969958}
   goldenUGUI: {fileID: 0}
+  pressAnyKeyToContinue: {fileID: 1285684141}
 --- !u!4 &691310112
 Transform:
   m_ObjectHideFlags: 0
@@ -6467,7 +6468,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1020016510
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6921,6 +6922,7 @@ GameObject:
   - component: {fileID: 1285684144}
   - component: {fileID: 1285684143}
   - component: {fileID: 1285684142}
+  - component: {fileID: 1285684146}
   m_Layer: 0
   m_Name: pressAnyKeyToContinue
   m_TagString: Untagged
@@ -6948,7 +6950,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press anything to continue
+  m_text: Press any key to continue
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 98b50392e6d9b2746904b987b42c1144, type: 2}
   m_sharedMaterial: {fileID: 9176286867940879591, guid: 98b50392e6d9b2746904b987b42c1144, type: 2}
@@ -7086,6 +7088,18 @@ RectTransform:
   m_AnchoredPosition: {x: 574, y: 463}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1285684146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1285684141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8707c6d104038f4f97a29d8926ae499, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1293683848
 GameObject:
   m_ObjectHideFlags: 0

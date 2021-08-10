@@ -27,6 +27,9 @@ public class TextManager : MonoBehaviour
     public GameObject goldenTextGameObject;
     [HideInInspector] public TextMeshProUGUI goldenUGUI;
     
+    //case 4
+    public BlinkTextForTutorial pressAnyKeyToContinue;
+
     // internal variables for typewriter work
     private string _finalText = "";
     private bool isDone;
@@ -46,6 +49,7 @@ public class TextManager : MonoBehaviour
         tilterTextUGUI = tilterTextGameObject.GetComponent<TextMeshProUGUI>();
         heartTextUGUI = heartTextGameObject.GetComponent<TextMeshProUGUI>();
         goldenUGUI = goldenTextGameObject.GetComponent<TextMeshProUGUI>();
+        pressAnyKeyToContinue = pressAnyKeyToContinue.GetComponent<BlinkTextForTutorial>();
         
         
         //IMPORTANT STUFF
@@ -92,6 +96,10 @@ public class TextManager : MonoBehaviour
                     goldenTextGameObject.SetActive(true);
                     textToWrite = "Extra lives are golden:";
                     coroutineSaver = StartCoroutine(StartTypeWritter(textToWrite, goldenUGUI));
+                    break;
+                case 4:
+                    NewCaseProtocol();
+                    pressAnyKeyToContinue.StartBlinking();
                     break;
             }
             
