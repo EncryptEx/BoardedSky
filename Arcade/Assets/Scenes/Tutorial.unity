@@ -1198,6 +1198,7 @@ GameObject:
   - component: {fileID: 680335519}
   - component: {fileID: 680335518}
   - component: {fileID: 680335517}
+  - component: {fileID: 680335521}
   m_Layer: 0
   m_Name: PlayerModel
   m_TagString: Player
@@ -1284,6 +1285,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &680335521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 680335516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67a2dac10822a6546a2a97f4ff5fab90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lmax: 4
+  rmax: 12
+  playerSpeed: 20
 --- !u!1 &691310110
 GameObject:
   m_ObjectHideFlags: 0
@@ -1294,6 +1310,7 @@ GameObject:
   m_Component:
   - component: {fileID: 691310112}
   - component: {fileID: 691310111}
+  - component: {fileID: 691310113}
   m_Layer: 0
   m_Name: TextManager
   m_TagString: Untagged
@@ -1325,7 +1342,8 @@ MonoBehaviour:
   ghearts: {fileID: 1886286082}
   goldenTextGameObject: {fileID: 670969958}
   goldenUGUI: {fileID: 0}
-  pressAnyKeyToContinue: {fileID: 1285684141}
+  pressAnyKeyToContinue: {fileID: 1285684146}
+  np: {fileID: 691310113}
 --- !u!4 &691310112
 Transform:
   m_ObjectHideFlags: 0
@@ -1340,6 +1358,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &691310113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 691310110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17d2d45e1eed3524d92587c11c4d8dbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isAbleToSkip: 0
+  tm: {fileID: 691310111}
 --- !u!1 &790929739
 GameObject:
   m_ObjectHideFlags: 0
@@ -6950,7 +6982,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press any key to continue
+  m_text: Click anywhere to continue
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 98b50392e6d9b2746904b987b42c1144, type: 2}
   m_sharedMaterial: {fileID: 9176286867940879591, guid: 98b50392e6d9b2746904b987b42c1144, type: 2}

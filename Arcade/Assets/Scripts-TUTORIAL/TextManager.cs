@@ -29,7 +29,8 @@ public class TextManager : MonoBehaviour
     
     //case 4
     public BlinkTextForTutorial pressAnyKeyToContinue;
-
+    public NextPart np;
+    
     // internal variables for typewriter work
     private string _finalText = "";
     private bool isDone;
@@ -100,6 +101,7 @@ public class TextManager : MonoBehaviour
                 case 4:
                     NewCaseProtocol();
                     pressAnyKeyToContinue.StartBlinking();
+                    np.isAbleToSkip = true;
                     break;
             }
             
@@ -134,4 +136,12 @@ public class TextManager : MonoBehaviour
         // rewrite on text.
         textTarget.text = _finalText;
     }
+
+
+    public void StartPart2()
+    {
+        
+    }
+    
+    
 }
