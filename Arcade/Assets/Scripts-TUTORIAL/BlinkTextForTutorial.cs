@@ -3,6 +3,7 @@ using UnityEngine;
 public class BlinkTextForTutorial : MonoBehaviour
 {
     private int c;
+    public NextPart np;
 
     // Start is called before the first frame update
     public void StartBlinking()
@@ -13,15 +14,24 @@ public class BlinkTextForTutorial : MonoBehaviour
 
     private void Blink()
     {
-        if (this.gameObject.activeSelf && c >= 4)
+        if (np.isAbleToSkip)
         {
-            this.gameObject.SetActive(false);
-            c = 0;
+            if (this.gameObject.activeSelf && c >= 4)
+            {
+                this.gameObject.SetActive(false);
+                c = 0;
+            }
+            else
+            {
+                c++;
+                this.gameObject.SetActive(true);
+            }
         }
-        else
-        {
-            c++;
-            this.gameObject.SetActive(true);
-        }
+        
+    }
+
+    public void HideMe()
+    {
+        gameObject.SetActive(false);
     }
 }

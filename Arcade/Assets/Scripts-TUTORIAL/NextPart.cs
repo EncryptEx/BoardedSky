@@ -17,6 +17,7 @@ public class NextPart : MonoBehaviour
             {
                 tm.StartPart2();
                 isAbleToSkip = false;
+                this.gameObject.SetActive(false);
             }
         }
     }

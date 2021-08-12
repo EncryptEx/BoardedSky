@@ -140,7 +140,15 @@ public class TextManager : MonoBehaviour
 
     public void StartPart2()
     {
-        
+        MainText.text = "";
+        playerTextGameObject.SetActive(false);
+        fakePlayer.SetActive(false);
+        tilterTextGameObject.SetActive(false);
+        hearts.SetActive(false);
+        ghearts.SetActive(false);
+        heartTextGameObject.SetActive(false);
+        goldenTextGameObject.SetActive(false);
+        pressAnyKeyToContinue.HideMe();
     }
     
     
