@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class TextManager : MonoBehaviour
 {
+    public GameObject mainTextGameObject;
     public TextMeshProUGUI MainText;
     
     //gameobjects and texts variables: 
@@ -31,6 +32,19 @@ public class TextManager : MonoBehaviour
     public BlinkTextForTutorial pressAnyKeyToContinue;
     public NextPart np;
     
+    
+    // PART 2
+    //start part 2
+    public GameObject backgroundWall;
+    
+    //case 0
+    public GameObject brickText1GameObject;
+    [HideInInspector] public TextMeshProUGUI brickText1;
+    
+    //case 1
+    public GameObject brickText2GameObject;
+    [HideInInspector] public TextMeshProUGUI brickText2;
+    
     // internal variables for typewriter work
     private string _finalText = "";
     private bool isDone;
@@ -41,19 +55,28 @@ public class TextManager : MonoBehaviour
     // counter of how many times typewritter has finished
     private int howManyDones = 0;
     
+    //part counter;
+    private int _partType = 1;
     
     
     private void Start()
     {
+        _partType = 1;
+        
         //GameObject Findings and declarations
         playerTextUGUI = playerTextGameObject.GetComponent<TextMeshProUGUI>();
         tilterTextUGUI = tilterTextGameObject.GetComponent<TextMeshProUGUI>();
         heartTextUGUI = heartTextGameObject.GetComponent<TextMeshProUGUI>();
         goldenUGUI = goldenTextGameObject.GetComponent<TextMeshProUGUI>();
         pressAnyKeyToContinue = pressAnyKeyToContinue.GetComponent<BlinkTextForTutorial>();
-        
+        brickText1 = brickText1GameObject.GetComponent<TextMeshProUGUI>();
+        brickText2 = brickText2GameObject.GetComponent<TextMeshProUGUI>();
         
         //IMPORTANT STUFF
+        //case "-1"  = pre all.
+        backgroundWall.SetActive(true);
+
+        mainTextGameObject.SetActive(true);
         var textToWrite = "Welcome player!\n" +
                           "I'm glad to teach you how the game works.\n" +
                           "Let's start with the basics:\n";
@@ -64,9 +87,9 @@ public class TextManager : MonoBehaviour
 
     private void Update()
     {
-        if (isDone)
+        if (isDone && _partType == 1)
         { 
-            var textToWrite = "";
+            string textToWrite;
             switch (howManyDones)
             {
                    
@@ -106,6 +129,37 @@ public class TextManager : MonoBehaviour
             }
             
         }
+
+        if (isDone && _partType == 2) //part 2
+        {
+            Debug.Log("detected part 2 - is ready");
+            string textToWrite;
+            /*switch (howManyDones)
+            {
+                case 0:
+                    NewCaseProtocol();
+                    
+                    playerTextGameObject.SetActive(true);
+                    textToWrite = "The objective is to destroy all the bricks";
+                    coroutineSaver = StartCoroutine(StartTypeWritter(textToWrite, playerTextUGUI));
+                    break;
+                case 1:
+                    NewCaseProtocol();
+                    tilterTextGameObject.SetActive(true);
+                        textToWrite = "But there are someones that are harder to break depending of their color";
+                    coroutineSaver = StartCoroutine(StartTypeWritter(textToWrite, tilterTextUGUI));
+                    break;
+                
+                case 2: //lives moment
+                    NewCaseProtocol();
+                    hearts.SetActive(true);
+                    heartTextGameObject.SetActive(true);
+                    textToWrite = "You have lives and you die when you reach 0.";
+                    coroutineSaver = StartCoroutine(StartTypeWritter(textToWrite, heartTextUGUI));
+                    break;
+                    
+            }*/
+        }
     }
 
 
@@ -140,6 +194,8 @@ public class TextManager : MonoBehaviour
 
     public void StartPart2()
     {
+        Debug.Log("start part 2 process start");
+        _partType=2;
         MainText.text = "";
         playerTextGameObject.SetActive(false);
         fakePlayer.SetActive(false);
@@ -149,6 +205,16 @@ public class TextManager : MonoBehaviour
         heartTextGameObject.SetActive(false);
         goldenTextGameObject.SetActive(false);
         pressAnyKeyToContinue.HideMe();
+        backgroundWall.SetActive(false);
+        Invoke("ExecutePartTwo", 0.3f);
+    }
+
+    private void ExecutePartTwo()
+    {
+        Debug.Log("Start part 2 sub process");
+        howManyDones = 0;
+        isDone = true;
+        this.gameObject.SetActive(true);
     }
     
     
