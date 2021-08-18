@@ -11,6 +11,7 @@ public class FadeEntryMusic : MonoBehaviour
     private void Start()
     {
         UIFadeComp = UIFade.GetComponent<RectTransform>();
+        UIFade.SetActive(true);
         am = AudioManager.Instance;
         AudioManager.Instance.Click();
         StartCoroutine(am.Fade());
