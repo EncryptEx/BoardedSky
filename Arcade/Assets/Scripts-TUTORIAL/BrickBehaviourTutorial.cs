@@ -14,7 +14,8 @@ public class BrickBehaviourTutorial : MonoBehaviour
         switch (brickDiff)
         {
             case 0:
-                Destroy(gameObject);
+                gameObject.SetActive(false);
+                Invoke("ReAppear",2);
                 break;
             case 1:
                 var brickrenderer = brickbase.GetComponent<Renderer>();
@@ -31,4 +32,10 @@ public class BrickBehaviourTutorial : MonoBehaviour
             brickDiff--;
         }
     }
+
+    void ReAppear()
+    {
+        gameObject.SetActive(true);
+    }
+    
 }
