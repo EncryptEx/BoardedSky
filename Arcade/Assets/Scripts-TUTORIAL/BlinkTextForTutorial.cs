@@ -27,11 +27,10 @@ public class BlinkTextForTutorial : MonoBehaviour
                 this.gameObject.SetActive(true);
             }
         }
+        else
+        {
+            gameObject.SetActive(false);
+        }
         
-    }
-
-    public void HideMe()
-    {
-        gameObject.SetActive(false);
     }
 }

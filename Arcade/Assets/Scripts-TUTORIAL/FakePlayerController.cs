@@ -10,14 +10,14 @@ public class FakePlayerController : MonoBehaviour
     private readonly float tiltAngle = 10.0f;
     public float playerSpeed = 20f;
     public TextManager tm;
-    private bool _isAbleToInvoke = true;
+    public bool isAbleToInvoke = false;
     void Update()
     {
-        if (_isAbleToInvoke)
+        if (isAbleToInvoke)
         {
             if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
             {
-                _isAbleToInvoke = false;
+                isAbleToInvoke = false;
                 tm.Invoke("SetDone",1.8f);
             }
         }

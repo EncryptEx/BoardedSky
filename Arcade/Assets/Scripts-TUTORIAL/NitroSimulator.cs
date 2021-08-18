@@ -9,6 +9,7 @@ public class NitroSimulator : MonoBehaviour
 
     public GameObject n3;
     public TextManager tm;
+    public bool isAbleToNitro = false;
     
     // Start is called before the first frame update
     void Start()
@@ -21,8 +22,9 @@ public class NitroSimulator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && isAbleToNitro)
         {
+            isAbleToNitro = false;
             n1.SetActive(false);
             n2.SetActive(true);
             Invoke("DelayedDisable", 2f);
