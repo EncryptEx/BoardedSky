@@ -1,14 +1,12 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class TextManager : MonoBehaviour
 {
     public GameObject mainTextGameObject;
-    public TextMeshProUGUI MainText;
+    [HideInInspector] public TextMeshProUGUI mainText;
     
     //gameobjects and texts variables: 
     //case 0 and 1
@@ -24,7 +22,7 @@ public class TextManager : MonoBehaviour
     [HideInInspector] public TextMeshProUGUI heartTextUGUI;
     
     //case 3
-    public GameObject ghearts;
+    public GameObject gHearts;
     public GameObject goldenTextGameObject;
     [HideInInspector] public TextMeshProUGUI goldenUGUI;
     
@@ -118,17 +116,14 @@ public class TextManager : MonoBehaviour
         redText = redTextGameObject.GetComponent<TextMeshProUGUI>();
         blueText = blueTextGameObject.GetComponent<TextMeshProUGUI>();
         redText = redTextGameObject.GetComponent<TextMeshProUGUI>();
+        pressAnyKeyText = pressAnyKeyToContinue.GetComponent<TextMeshProUGUI>();
+        mainText = mainTextGameObject.GetComponent<TextMeshProUGUI>();
         
         //IMPORTANT STUFF
         //case "-1"  = pre all.
         backgroundWall.SetActive(true);
-
-        mainTextGameObject.SetActive(true);
-        var textToWrite = "Welcome player!\n" +
-                          "I'm glad to teach you how the game works.\n" +
-                          "Let's start with the basics:\n";
         _isDone = false;
-        _coroutineSaver = StartCoroutine(StartTypeWritter(textToWrite, MainText));
+        Invoke("SetDone",3);
     }
 
 
@@ -139,36 +134,46 @@ public class TextManager : MonoBehaviour
             string textToWrite;
             switch (_howManyDones)
             {
-                   
-                case 0: // player fake moment
+                
+                case 0:
+                    _howManyDones++;
+                    _isDone = false;
+                    mainTextGameObject.SetActive(true);
+                    textToWrite = "Welcome player!\n" +
+                                      "This is an interactive tutorial.\n" +
+                                      "Let's start with the basics:\n";
+                    
+                    _coroutineSaver = StartCoroutine(StartTypeWritter(textToWrite, mainText,true));
+                   break;
+                case 1: // player fake moment
                     NewCaseProtocol();
                     fakePlayer.SetActive(true);
                     playerTextGameObject.SetActive(true);
                     textToWrite = "Use A and D keys to move";
-                    _coroutineSaver = StartCoroutine(StartTypeWritter(textToWrite, playerTextUGUI));
+                    _coroutineSaver = StartCoroutine(StartTypeWritter(textToWrite, playerTextUGUI,true));
                     break;
-                case 1: // tilt moment 
+                case 2: // tilt moment 
                     NewCaseProtocol();
                     tilterTextGameObject.SetActive(true);
                     textToWrite = "and W and S keys to tilt";
-                    _coroutineSaver = StartCoroutine(StartTypeWritter(textToWrite, tilterTextUGUI));
+                    _coroutineSaver = StartCoroutine(StartTypeWritter(textToWrite, tilterTextUGUI,false));
                     break;
                 
-                case 2: //lives moment
+                case 3: //lives moment
                     NewCaseProtocol();
                     hearts.SetActive(true);
                     heartTextGameObject.SetActive(true);
                     textToWrite = "You have lives and you die when you reach 0.";
-                    _coroutineSaver = StartCoroutine(StartTypeWritter(textToWrite, heartTextUGUI));
+                    _coroutineSaver = StartCoroutine(StartTypeWritter(textToWrite, heartTextUGUI,true));
                     break;
-                case 3: // golden moment
+                case 4: // golden moment
                     NewCaseProtocol();
-                    ghearts.SetActive(true);
+                    gHearts.SetActive(true);
                     goldenTextGameObject.SetActive(true);
                     textToWrite = "Extra lives are golden:";
-                    _coroutineSaver = StartCoroutine(StartTypeWritter(textToWrite, goldenUGUI));
+                    _coroutineSaver = StartCoroutine(StartTypeWritter(textToWrite, goldenUGUI,true));
                     break;
-                case 4:
+                case 5:
                     NewCaseProtocol();
                     pressAnyKeyText.text = "Click anywhere to continue";
                     pressAnyKeyToContinue.StartBlinking();
@@ -189,14 +194,14 @@ public class TextManager : MonoBehaviour
                     brickModel.SetActive(true);
                     brickText1GameObject.SetActive(true);
                     textToWrite = "The objective is to destroy all the bricks";
-                    _coroutineSaver = StartCoroutine(StartTypeWritter(textToWrite, brickText1));
+                    _coroutineSaver = StartCoroutine(StartTypeWritter(textToWrite, brickText1,true));
                     break;
                 case 1:
                     NewCaseProtocol();
                     hardBrickModel.SetActive(true);
                     brickText2GameObject.SetActive(true);
-                        textToWrite = "But there are someones that are harder to break depending of their color";
-                    _coroutineSaver = StartCoroutine(StartTypeWritter(textToWrite, brickText2));
+                        textToWrite = "But there are some of them that are harder to break depending of their color";
+                    _coroutineSaver = StartCoroutine(StartTypeWritter(textToWrite, brickText2,true));
                     break;
                 
                 case 2: 
@@ -209,31 +214,31 @@ public class TextManager : MonoBehaviour
                     nitro.SetActive(true);
                     nitroTextGameObject.SetActive(true);
                     textToWrite = "Nitro allows you to go faster for some seconds. You can use it with the SPACE BAR";
-                    _coroutineSaver = StartCoroutine(StartTypeWritter(textToWrite, nitroText));
+                    _coroutineSaver = StartCoroutine(StartTypeWritter(textToWrite, nitroText,false));
                     break;
                 case 4:
                     NewCaseProtocol();
                     powerUpTextGameObject.SetActive(true);
                     textToWrite = "And finally, there're 3 types of collectable POWER UPS:";
-                    _coroutineSaver = StartCoroutine(StartTypeWritter(textToWrite, powerText));
+                    _coroutineSaver = StartCoroutine(StartTypeWritter(textToWrite, powerText,true));
                     break;
                 case 5:
                     NewCaseProtocol();
                     redPill.SetActive(true);
                     redTextGameObject.SetActive(true);
-                    Invoke("HasFinishedBallDemo",1f); //reuse of method. ignore its name
+                    Invoke("SetDone",1f);
                     break;
                 case 6:
                     NewCaseProtocol();
                     greenTextGameObject.SetActive(true);
                     greenPill.SetActive(true);
-                    Invoke("HasFinishedBallDemo",1f);//reuse of method. ignore its name
+                    Invoke("SetDone",1f);
                     break;
                 case 7:
                     NewCaseProtocol();
                     bluePill.SetActive(true);
                     blueTextGameObject.SetActive(true);
-                    Invoke("HasFinishedBallDemo",1f);//reuse of method. ignore its name
+                    Invoke("SetDone",1f);
                     break;
                 case 8:
                     NewCaseProtocol();
@@ -253,16 +258,17 @@ public class TextManager : MonoBehaviour
         _isDone = false;
     }
 
-    IEnumerator StartTypeWritter(string passedValue, TextMeshProUGUI textTarget)
+    IEnumerator StartTypeWritter(string passedValue, TextMeshProUGUI textTarget, bool finalResult)
     {
         for (int i = 0; i < passedValue.Length; i++)
         {
+            
             TypeWritter(passedValue, i, textTarget);
             yield return new WaitForSeconds(0.05f);
         }
 
         _finalText = "";
-        _isDone = true;
+        _isDone = finalResult;
     }
     
     private void  TypeWritter(string text, int letterValue, TextMeshProUGUI textTarget)
@@ -279,12 +285,12 @@ public class TextManager : MonoBehaviour
     {
         Debug.Log("start part 2 process start");
         _partType=2;
-        MainText.text = "";
+        mainText.text = "";
         playerTextGameObject.SetActive(false);
         fakePlayer.SetActive(false);
         tilterTextGameObject.SetActive(false);
         hearts.SetActive(false);
-        ghearts.SetActive(false);
+        gHearts.SetActive(false);
         heartTextGameObject.SetActive(false);
         goldenTextGameObject.SetActive(false);
         pressAnyKeyToContinue.HideMe();
@@ -300,7 +306,7 @@ public class TextManager : MonoBehaviour
         this.gameObject.SetActive(true);
     }
 
-    public void HasFinishedBallDemo()
+    public void SetDone()
     {
         _isDone = true;
     }

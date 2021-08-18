@@ -9,9 +9,19 @@ public class FakePlayerController : MonoBehaviour
     private readonly float smooth = 5.0f;
     private readonly float tiltAngle = 10.0f;
     public float playerSpeed = 20f;
-    
+    public TextManager tm;
+    private bool _isAbleToInvoke = true;
     void Update()
     {
+        if (_isAbleToInvoke)
+        {
+            if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
+            {
+                _isAbleToInvoke = false;
+                tm.Invoke("SetDone",1.8f);
+            }
+        }
+        
         var pos = transform.position;
         //move horizontally with set speed and time control. The rest is as it is.
         var newx = Input.GetAxis("Horizontal") * playerSpeed * Time.deltaTime + pos.x;

@@ -14,7 +14,7 @@ public class TriggerActivator : MonoBehaviour
             if (other.gameObject.CompareTag("projectile"))
             {
                 _isAbleToDetect = false;
-                tm.HasFinishedBallDemo();
+                tm.SetDone();
             }
         }
         

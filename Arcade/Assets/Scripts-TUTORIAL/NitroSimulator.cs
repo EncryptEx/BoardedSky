@@ -8,6 +8,8 @@ public class NitroSimulator : MonoBehaviour
     public GameObject n2;
 
     public GameObject n3;
+    public TextManager tm;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -31,5 +33,6 @@ public class NitroSimulator : MonoBehaviour
     {
         n2.SetActive(false);
         n3.SetActive(true);
+        tm.SetDone();        
     }
 }
