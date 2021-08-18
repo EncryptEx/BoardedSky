@@ -12,6 +12,9 @@ public class NextPart : MonoBehaviour
     public GameObject UIFade;
     private RectTransform UIFadeComp;
     
+    //camera
+    public CameraMove cm;
+    
     void Start()
     {
         isAbleToSkip = false;
@@ -37,8 +40,8 @@ public class NextPart : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
             {
-                //fade out music & ui.
-                //then return to menu
+                //camera move to fake game
+                cm.StartMovingCamera();
             }
         }
     }

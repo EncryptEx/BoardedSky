@@ -1833,8 +1833,8 @@ MonoBehaviour:
   hearts: {fileID: 1812807900}
   heartTextGameObject: {fileID: 1343199614}
   heartTextUGUI: {fileID: 0}
-  gHearts: {fileID: 0}
-  goldenTextGameObject: {fileID: 1886286082}
+  gHearts: {fileID: 1886286082}
+  goldenTextGameObject: {fileID: 670969958}
   goldenUGUI: {fileID: 0}
   pressAnyKeyToContinue: {fileID: 1285684146}
   pressAnyKeyText: {fileID: 0}
@@ -1891,6 +1891,7 @@ MonoBehaviour:
   isAbleToSkip: 0
   tm: {fileID: 691310111}
   UIFade: {fileID: 1886921768}
+  cm: {fileID: 1928837947}
 --- !u!1001 &781345362
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14383,6 +14384,7 @@ GameObject:
   - component: {fileID: 1928837946}
   - component: {fileID: 1928837945}
   - component: {fileID: 1928837944}
+  - component: {fileID: 1928837947}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -14455,6 +14457,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &1928837947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1928837943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45c1e2176fdfc9a40a6faa0f399a077a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1930321223
 GameObject:
   m_ObjectHideFlags: 0

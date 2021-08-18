@@ -5,16 +5,24 @@ using UnityEngine;
 public class CameraMove : MonoBehaviour
 {
     private Vector3 _finalPos;
-    private Vector3 _startPos;
     void Start()
     {
-        _startPos = new Vector3(-5.38999987f, 25f, 31.25f);
-        _finalPos = new Vector3(-5.38999987f, 24.9799995f, -5.46000004f);
+        _finalPos = new Vector3(-5.38999987f, 25f, -5.46000004f);
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator MoveCamera()
     {
-        
+        while (transform.position.z < _finalPos.z)
+        {
+            transform.position = new Vector3(_finalPos.z,_finalPos.y,transform.position.z-(0.1f*Time.deltaTime));
+            yield return null;
+        }
+
+        transform.position = _finalPos;
+    }
+
+    public void StartMovingCamera()
+    {
+        StartCoroutine(MoveCamera());
     }
 }
