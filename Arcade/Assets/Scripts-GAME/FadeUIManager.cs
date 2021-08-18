@@ -8,9 +8,19 @@ public class FadeUIManager : MonoBehaviour
     private RectTransform UIFadeComp;
     private void Start()
     {
-        UIFadeComp = UIFade.GetComponent<RectTransform>();
-        StartCoroutine(UIFadeIn());
-        UIFade.SetActive(true);
+        var tutorialReferrer = GameObject.Find("TutorialReferrer");
+        if (!tutorialReferrer)
+        {
+            UIFadeComp = UIFade.GetComponent<RectTransform>();
+            StartCoroutine(UIFadeIn());
+            UIFade.SetActive(true);
+        }
+        else
+        {
+            UIFade.SetActive(false);
+            Destroy(tutorialReferrer);
+        }
+        
     }
     IEnumerator UIFadeIn()
     {

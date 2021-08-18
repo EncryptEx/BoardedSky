@@ -38,6 +38,17 @@ public class MainMenu : MonoBehaviour
         }
     }
 
+    public void LoadTutorial()
+    {
+        if (isAvailableToPress)
+        {
+            StartCoroutine(TutorialLoad());
+            UIFade.SetActive(true);
+            StartCoroutine(FadeOutUI());
+            isAvailableToPress = false;
+        }
+    }
+    
     public void QuitGame()
     {
         if (isAvailableToPress)
@@ -98,5 +109,20 @@ public class MainMenu : MonoBehaviour
         }
 
         return true;
+    }
+    
+    private IEnumerator TutorialLoad()
+    {
+        Debug.Log("STARTING FADEOUT TUTORIAL");
+        while (am.asrc.volume > 0f) //for future whould be user's predef. 
+        {
+            //Debug.Log(am.asrc.volume);
+            //Debug.Log("augmenting volume"+am.volume);
+            am.asrc.volume -= 0.01f;
+            yield return null;
+        }
+
+        am.asrc.volume = 0f;
+        SceneManager.LoadScene(5);
     }
 }
