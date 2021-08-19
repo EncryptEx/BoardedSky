@@ -1,4 +1,4 @@
-<p align="center"><a href="#"><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.giphy.com%2Fmedia%2FChcDR0liFvtgk%2Fgiphy.gif&f=1&nofb=1" alt="Hat" height="60"/></a></p>
+<p align="center"><a href="#"><img src="Arcade/Assets/Images/icon.png" alt="Hat" height="60"/></a></p>
 <h1 align="center">Arcade Game</h1>
 <p align="center">A unity game made in a summer inspired on Atari Breakout</p>
 <p align="center">
@@ -9,7 +9,7 @@
 </p>
 
 # Current Phase:
-**DEV** (This means the game is not completed)
+****
 
 # Tutorial
 Use the LEFT and RIGHT arrow keys or AD to move horizontally. 
