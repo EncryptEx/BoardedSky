@@ -2,7 +2,7 @@
 <h1 align="center">Boarded Sky</h1>
 <p align="center">A unity game made in a summer inspired on Atari Breakout</p>
 <p align="center">
-	<img src="hhttps://img.shields.io/github/v/release/EncryptEx/BoardedSky?include_prereleases"/>
+	<img src="https://img.shields.io/github/v/release/EncryptEx/BoardedSky?include_prereleases"/>
 	<img src="https://img.shields.io/github/repo-size/EncryptEx/BoardedSky"/>
 	<img src="https://img.shields.io/github/last-commit/EncryptEx/BoardedSky"/>
   <img src="https://img.shields.io/github/downloads/EncryptEx/BoardedSky/total"/>
