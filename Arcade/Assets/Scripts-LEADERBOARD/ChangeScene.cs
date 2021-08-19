@@ -66,7 +66,7 @@ public class ChangeScene : MonoBehaviour
         {
             yield return null;
         }
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2); //return to menu
     }
 
     bool SetSizeDown(RectTransform trans, float multiplier)

@@ -20,7 +20,7 @@ public class GameOverTextScript : MonoBehaviour
             if (GetComponent<RectTransform>().position.z <= -1.9)
             {
                 Destroy(GetComponent<Rigidbody>());
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                SceneManager.LoadScene(4); //game to end
             }
     }
 }

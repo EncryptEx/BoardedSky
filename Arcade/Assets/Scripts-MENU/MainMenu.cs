@@ -70,7 +70,7 @@ public class MainMenu : MonoBehaviour
         }
 
         am.asrc.volume = 0f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(3); //game
     }
 
     private IEnumerator LoadScoreBoard()
@@ -85,7 +85,7 @@ public class MainMenu : MonoBehaviour
         }
 
         am.asrc.volume = 0f;
-        SceneManager.LoadScene(4);
+        SceneManager.LoadScene(5); //leaderboard
     }
 
     private IEnumerator FadeOutUI()
@@ -123,6 +123,6 @@ public class MainMenu : MonoBehaviour
         }
 
         am.asrc.volume = 0f;
-        SceneManager.LoadScene(5);
+        SceneManager.LoadScene(6); //tutorial
     }
 }

@@ -41,7 +41,7 @@ public class NextScreen : MonoBehaviour
 
         AudioManager.Instance.asrc.volume = 0f;
 
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);//intro to menu
     }
 
     private IEnumerator FadeOutUI()

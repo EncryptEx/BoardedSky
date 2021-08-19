@@ -247,7 +247,7 @@ public class TextManager : MonoBehaviour
                     break;
                 case 6:
                     
-                    _isDone = true;
+                    _isDone = false;
                     _howManyDones++;
                     redPill.SetActive(true);
                     redTextGameObject.SetActive(true);

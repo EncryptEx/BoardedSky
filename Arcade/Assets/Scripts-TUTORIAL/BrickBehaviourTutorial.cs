@@ -5,23 +5,46 @@ using UnityEngine;
 
 public class BrickBehaviourTutorial : MonoBehaviour
 {
+    private bool _hasDied = false;
     public int brickDiff;
     public GameObject brickbase;
     public Color OneHpColor;
+    private Color _initialColor;
+
+    private void Start()
+    {
+        _initialColor = OneHpColor;
+    }
 
     private void Update()
     {
-        switch (brickDiff)
+        var brickrenderer = brickbase.GetComponent<Renderer>();
+        if (!_hasDied)
         {
-            case 0:
-                gameObject.SetActive(false);
-                Invoke("ReAppear",2);
-                break;
-            case 1:
-                var brickrenderer = brickbase.GetComponent<Renderer>();
+            switch (brickDiff)
+            {
+                case 0:
+                    _hasDied = true;
+                    gameObject.SetActive(false);
+                    Invoke("ReAppear", 6);
+                    break;
+                case 1:
+                    brickrenderer.material.SetColor("_Color",
+                        OneHpColor);
+                    break;
+                case 2:
+                    _initialColor = brickrenderer.material.color;
+                    break;
+
+            }
+        }
+        else
+        {
+            if (_initialColor != OneHpColor) //determine if the brick had been in 2 lifes mode.
+            {
                 brickrenderer.material.SetColor("_Color",
-                    OneHpColor);
-                break;
+                    OneHpColor); //reset the color as original (part of reapear)
+            }
         }
     }
 

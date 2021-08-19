@@ -40,6 +40,6 @@ public class RestartGame : MonoBehaviour
         Destroy(pass);
 
         // now we're ready to change from scenes. 
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1); //game intro
     }
 }

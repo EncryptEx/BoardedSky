@@ -32,7 +32,7 @@ public class CameraMove : MonoBehaviour
     {
         if (_hasFinished)
         {
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(3); //game
         }
     }
     
