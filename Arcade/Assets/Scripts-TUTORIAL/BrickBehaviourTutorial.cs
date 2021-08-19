@@ -43,7 +43,7 @@ public class BrickBehaviourTutorial : MonoBehaviour
             if (_initialColor != OneHpColor) //determine if the brick had been in 2 lifes mode.
             {
                 brickrenderer.material.SetColor("_Color",
-                    OneHpColor); //reset the color as original (part of reapear)
+                    _initialColor); //reset the color as original (part of reapear)
             }
         }
     }

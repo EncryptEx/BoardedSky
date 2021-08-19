@@ -290,6 +290,8 @@ public class TextManager : MonoBehaviour
                     pressAnyKeyGameObject.SetActive(false);
                     nitro2.SetActive(false);
                     nitro3.SetActive(false);
+                    brickModel.SetActive(false);
+                    hardBrickModel.SetActive(false);
                     //start function---
                     mainTextGameObject.SetActive(true);
                     backgroundWall.SetActive(true);
