@@ -16,7 +16,7 @@ public class GameOverTextScript : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (g.gameover && SceneManager.GetActiveScene().buildIndex == 2)
+        if (g.gameover && SceneManager.GetActiveScene().buildIndex == 3) //check if is game........
             if (GetComponent<RectTransform>().position.z <= -1.9)
             {
                 Destroy(GetComponent<Rigidbody>());
