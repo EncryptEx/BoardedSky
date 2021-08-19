@@ -7,6 +7,9 @@ TagManager:
   - projectile
   - brick
   - gameover
+  - soundsys
+  - fadeui
+  - powerup
   layers:
   - Default
   - TransparentFX

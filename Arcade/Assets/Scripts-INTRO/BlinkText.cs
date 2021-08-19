@@ -1,29 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BlinkText : MonoBehaviour
 {
-    public GameObject text;
+   private int c;
+
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        text.gameObject.SetActive(true);
-        InvokeRepeating("Blink",1f,0.5f);
+        this.gameObject.SetActive(true);
+        InvokeRepeating("Blink", 1f, 0.5f);
     }
 
-    private int c = 0;
-    void Blink()
+    private void Blink()
     {
-        if (text.gameObject.activeSelf && c >= 4)
+        if (this.gameObject.activeSelf && c >= 4)
         {
-            text.gameObject.SetActive(false);
+            this.gameObject.SetActive(false);
             c = 0;
         }
         else
         {
             c++;
-            text.gameObject.SetActive(true);
+            this.gameObject.SetActive(true);
         }
     }
 }
