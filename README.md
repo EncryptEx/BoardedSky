@@ -9,7 +9,7 @@
 </p>
 
 # Current Phase:
-**Version 1.0-alpha**
+**Version 1.0**
 
 # Tutorial
 Use the LEFT and RIGHT arrow keys or AD to move horizontally. 
@@ -28,7 +28,7 @@ Pro Tip: there's an **Interactive Tutorial** inside the game.
 # How to play
 Web version (WebGL): https://unity.encryptex.me
 
-Binary Executable (.exe): https://github.com/EncryptEx/BoardedSky/releases/download/v.1.0-alpha/BoardedSky.1.0-alpha.Binary.Executable.zip
+Binary Executable (.exe): https://github.com/EncryptEx/BoardedSky/releases/download/v.1.0/BoardedSky.1.0.Binary.Executable.zip
 
 
 # Tools used
