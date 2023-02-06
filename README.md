@@ -28,28 +28,28 @@ Pro Tip: there's an **Interactive Tutorial** inside the game.
 # How to play
 Web version (WebGL): https://unity.encryptex.me
 
-Binary Executable (.exe): https://github.com/EncryptEx/BoardedSky/releases/download/v.1.0/BoardedSky.1.0.Binary.Executable.zip
+Binary Executable (.exe): https://github.com/EncryptEx/BoardedSky/releases/download/v.1.1/BoardedSky.1.1.Binary.Executable.zip
 
 
 # Tools used
 In this project I've used a lot of tools and programming languages:
 
 Tools:
-> Unity (Game Engine)
+* Unity (Game Engine)
 
-> Photopea (Images)
+* Photopea (Images)
 
-> Bosca Cecoil (Music)
+* Bosca Cecoil (Music)
 
-> JetBrains Rider (Editor)
+* JetBrains Rider (Editor)
 
-> Visual Studio 2019 (Alt Editor)
+* Visual Studio 2019 (Alt Editor)
 
-> VPS (Scoreboard)
+* VPS (Scoreboard)
 
 
 Languages:
-> C# (Game)
+* C# (Game)
 
-> PHP (Scoreboard Backend)
+* PHP (Scoreboard Backend)
 
