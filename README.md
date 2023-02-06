@@ -9,7 +9,7 @@
 </p>
 
 # Current Phase:
-**Version 1.0**
+**Version 1.1**
 
 # Tutorial
 Use the LEFT and RIGHT arrow keys or AD to move horizontally. 
